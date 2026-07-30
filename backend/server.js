@@ -1,10 +1,10 @@
 // server.js
-require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 
+require("dotenv").config();
 const app = express();
 
 // Connect to MongoDB
@@ -38,7 +38,9 @@ const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 app.use(notFound); // catches unmatched routes (404)
 app.use(errorHandler); // catches all thrown/passed errors
 
-const PORT = process.env.PORT || 5000;
+console.log("PORT VALUE : ", process.env.PORT);
+
+const PORT = process.env.PORT || 7000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
