@@ -1,7 +1,8 @@
 // controllers/sosController.js
 const SOSAlert = require("../models/SOSAlert");
 const Contact = require("../models/Contact");
-// const { sendSMS } = require('../services/smsService'); // uncomment once smsService is built
+const { sendSOSAlertToContacts } = require("../services/smsServices");
+const { sendSOSAlertEmail } = require("../services/emailService");
 
 // @desc    Trigger a new SOS alert
 // @route   POST /api/sos/trigger
@@ -33,12 +34,40 @@ const triggerSOS = async (req, res) => {
       status: "active",
     });
 
-    // 3. Send actual SMS/notification to each contact (via Twilio service)
-    // for (const contact of contacts) {
-    //   await sendSMS(contact.phone, `Emergency! ${req.user.name} needs help. Location: https://maps.google.com/?q=${lat},${lng}`);
-    // }
+    // 3. Actually send SMS to all contacts at once via Twilio
+    const smsResults = await sendSOSAlertToContacts(
+      contacts,
+      req.user.name,
+      lat,
+      lng,
+    );
+
+    // 3b. Also send an email to any contact that has an email saved (extra redundancy)
+    const emailResults = await sendSOSAlertEmail(
+      contacts,
+      req.user.name,
+      lat,
+      lng,
+    );
+
+    // 4. Also push an INSTANT real-time alert via Socket.IO (in case contact's app is open)
+    // This works alongside SMS -- SMS reaches them even if app is closed, socket is instant if app is open
+    const io = req.app.get("io");
+    contacts.forEach((contact) => {
+      // Each contact's socket must have joined a room matching their own contact._id
+      // (frontend does this via socket.emit('joinRoom', contact._id) on login)
+      io.to(contact._id.toString()).emit("sosAlert", {
+        userId: req.user.id,
+        userName: req.user.name,
+        lat,
+        lng,
+        timestamp: new Date(),
+      });
+    });
 
     res.status(201).json({
+      smsResults,
+      emailResults,
       message: "SOS alert triggered successfully",
       sosAlert,
     });

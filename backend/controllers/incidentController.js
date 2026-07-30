@@ -1,5 +1,6 @@
 // controllers/incidentController.js
 const Incident = require("../models/Incident");
+const { sendIncidentConfirmationEmail } = require("../services/emailService");
 
 // @desc    Report an unsafe location/incident
 // @route   POST /api/incidents
@@ -21,6 +22,13 @@ const reportIncident = async (req, res) => {
       category,
       severity,
     });
+
+    // Fire-and-forget confirmation email -- don't make the user wait for it
+    if (req.user.email) {
+      sendIncidentConfirmationEmail(req.user.email, description).catch((err) =>
+        console.error("Incident confirmation email failed:", err.message),
+      );
+    }
 
     res.status(201).json(incident);
   } catch (error) {

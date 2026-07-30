@@ -2,6 +2,7 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 const generateToken = require("../utils/generateToken");
+const { sendWelcomeEmail } = require("../services/emailService");
 
 // @desc    Register a new user
 // @route   POST /api/auth/register
@@ -33,7 +34,14 @@ const registerUser = async (req, res) => {
       phone,
     });
 
-    // 5. Send back user info + JWT token so they're logged in immediately
+    // 5. Send a welcome email (don't block the response if it fails)
+    if (user) {
+      sendWelcomeEmail(user.email, user.name).catch((err) =>
+        console.error("Welcome email failed:", err.message),
+      );
+    }
+
+    // 6. Send back user info + JWT token so they're logged in immediately
     if (user) {
       res.status(201).json({
         _id: user._id,
