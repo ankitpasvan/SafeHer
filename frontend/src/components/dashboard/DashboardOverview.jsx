@@ -128,7 +128,7 @@ export default function DashboardOverview() {
           LEFT NAVIGATION RAIL
           ========================================================= */}
       <DashboardSidebar
-        onOpenGuide={() => setShowHowItWorks(true)}
+        onOpenGuide={() => navigate("/flow")}
         onOpenHelpline={() => setShowHelpline(true)}
         onOpenSettings={() => setShowSettings(true)}
       />
@@ -304,7 +304,7 @@ export default function DashboardOverview() {
               <button
                 type="button"
                 className="btn-how-it-works"
-                onClick={() => setShowHowItWorks(true)}
+                onClick={() => navigate("/flow")}
               >
                 <span>How It Works</span>
                 <ArrowRightThinIcon width={16} height={16} />

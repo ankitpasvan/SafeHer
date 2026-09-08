@@ -20,6 +20,7 @@ export default function DashboardSidebar({ onOpenGuide, onOpenHelpline, onOpenSe
   const isAlerts = location.pathname === "/alerts";
   const isSafety = location.pathname === "/safety";
   const isProfile = location.pathname === "/profile";
+  const isFlow = location.pathname === "/flow" || location.pathname === "/panic-flow";
 
   return (
     <aside className="dashboard-sidebar" aria-label="Main Navigation">
@@ -103,13 +104,13 @@ export default function DashboardSidebar({ onOpenGuide, onOpenHelpline, onOpenSe
             <NavUsersIcon width={22} height={22} />
           </button>
 
-          {/* 7. Safety Guide & Resources */}
+          {/* 7. Panic Button Flow / Resources */}
           <button
             type="button"
-            className="dashboard-nav-btn"
-            onClick={onOpenGuide}
-            title="Safety Guide & Self Defense Tips"
-            aria-label="Resources"
+            className={`dashboard-nav-btn ${isFlow ? "active" : ""}`}
+            onClick={() => navigate("/flow")}
+            title="Panic Button Emergency Flow (Slide 4)"
+            aria-label="Panic Flow"
           >
             <NavBookIcon width={22} height={22} />
           </button>
