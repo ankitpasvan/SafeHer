@@ -1,0 +1,1002 @@
+/* ==========================================================================
+   SafeHer - Premium Dashboard Overview Styles
+   Crafted with pixel-precision matching the official brand design
+   ========================================================================== */
+
+/* Overall Shell */
+.dashboard-shell {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #0A0618;
+  color: #FFFFFF;
+  font-family: var(--font-sans, "Plus Jakarta Sans", system-ui, -apple-system, sans-serif);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Atmospheric Ambient Lighting */
+.dashboard-ambient-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(800px 500px at 15% 10%, rgba(99, 102, 241, 0.08), transparent 70%),
+    radial-gradient(700px 450px at 85% 20%, rgba(244, 63, 94, 0.06), transparent 70%),
+    radial-gradient(900px 600px at 50% 90%, rgba(147, 51, 234, 0.05), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================================================================
+   LEFT NAVIGATION RAIL (Sidebar)
+   ========================================================================== */
+.dashboard-sidebar {
+  width: 76px;
+  min-width: 76px;
+  background-color: #0E0822;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  z-index: 40;
+}
+
+.dashboard-sidebar-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+}
+
+.dashboard-sidebar-logo {
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-sidebar-logo:hover {
+  transform: scale(1.08);
+}
+
+.dashboard-nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 0 14px;
+  box-sizing: border-box;
+}
+
+.dashboard-nav-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: transparent;
+  border: none;
+  color: #8C86A5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.dashboard-nav-btn:hover:not(.active) {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.dashboard-nav-btn.active {
+  background: linear-gradient(135deg, #6366F1 0%, #7C3AED 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.45);
+}
+
+.dashboard-sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ==========================================================================
+   MAIN DASHBOARD CONTENT
+   ========================================================================== */
+.dashboard-main {
+  flex: 1;
+  padding: 24px 36px 36px;
+  max-width: 1360px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Area */
+.dashboard-header {
+  margin-bottom: 20px;
+}
+
+.dashboard-slide-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #C084FC;
+  margin-bottom: 8px;
+  letter-spacing: 0.2px;
+}
+
+.dashboard-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: #FFFFFF;
+  margin: 0 0 3px;
+}
+
+.dashboard-subtitle {
+  font-size: 13.5px;
+  color: #8C86A5;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Welcome & Status Banner */
+.dashboard-welcome-banner {
+  background: #130D2B;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+.dashboard-welcome-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-welcome-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #FFFFFF;
+  margin: 0 0 3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dashboard-welcome-sub {
+  font-size: 13px;
+  color: #9D96B8;
+  margin: 0;
+  font-weight: 400;
+}
+
+.dashboard-welcome-widgets {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Weather Widget */
+.weather-widget {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-temp {
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.weather-loc {
+  font-size: 11px;
+  color: #8C86A5;
+  margin-top: 2px;
+}
+
+/* System Status Widget */
+.system-widget {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px solid rgba(16, 185, 129, 0.18);
+  border-radius: 12px;
+}
+
+.system-dots {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.system-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 6px #10B981;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+.system-dot:nth-child(2) {
+  animation-delay: 1s;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.6; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.system-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.system-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.system-status {
+  font-size: 11px;
+  color: #10B981;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Notification Bell */
+.notification-bell-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #DDD6FE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.notification-bell-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
+.notification-badge-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #EF4444;
+  box-shadow: 0 0 8px #EF4444;
+}
+
+/* ==========================================================================
+   DASHBOARD 2x2 MAIN GRID
+   ========================================================================== */
+.dashboard-grid-row {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   CARD 1: EMERGENCY 3D PANIC BUTTON CARD
+   -------------------------------------------------------------------------- */
+.dashboard-card-panic {
+  background: #140E2F;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  min-height: 180px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 3D Realistic Circular Panic Button */
+.panic-button-wrapper {
+  position: relative;
+  width: 136px;
+  height: 136px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Outer Ambient Glow Ring */
+.panic-ambient-glow {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.45) 0%, transparent 72%);
+  pointer-events: none;
+  animation: pulse-glow 3s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Press-and-Hold SVG Countdown Ring */
+.panic-progress-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.panic-progress-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 5;
+}
+
+.panic-progress-bar {
+  fill: none;
+  stroke: #FF3880;
+  stroke-width: 5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+/* Actual 3D Circular Button Element */
+.panic-btn-3d {
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #FF5A8D 0%, #E11D48 60%, #9F1239 100%);
+  border: 3px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    inset 0 3px 6px rgba(255, 255, 255, 0.45),
+    inset 0 -6px 12px rgba(0, 0, 0, 0.55),
+    0 10px 28px rgba(225, 29, 72, 0.65),
+    0 0 15px rgba(244, 63, 94, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.panic-btn-3d:active,
+.panic-btn-3d.is-holding {
+  transform: scale(0.95);
+  box-shadow: 
+    inset 0 6px 14px rgba(0, 0, 0, 0.7),
+    0 4px 16px rgba(225, 29, 72, 0.9);
+}
+
+.panic-label {
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+  color: #FFFFFF;
+  margin-top: 4px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.panic-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.panic-card-title {
+  font-size: 19px;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.panic-card-title .pink-highlight {
+  color: #FF3377;
+  text-shadow: 0 0 12px rgba(255, 51, 119, 0.5);
+}
+
+.panic-card-desc {
+  font-size: 13.5px;
+  color: #9D96B8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   CARD 2: STAY CALM & HOW IT WORKS CARD
+   -------------------------------------------------------------------------- */
+.dashboard-card-calm {
+  background: #140E2F;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  min-height: 180px;
+  box-sizing: border-box;
+}
+
+.calm-image-container {
+  width: 105px;
+  height: 125px;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.18) 0%, transparent 75%);
+}
+
+.calm-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.calm-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.calm-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+.calm-subtitle {
+  font-size: 13.5px;
+  color: #A59FB8;
+  margin: 0 0 10px;
+}
+
+.btn-how-it-works {
+  background: linear-gradient(135deg, #F43F86 0%, #FB7185 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 20px;
+  font-size: 13.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(244, 63, 134, 0.4);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  width: fit-content;
+}
+
+.btn-how-it-works:hover {
+  transform: translateX(2px);
+  box-shadow: 0 8px 22px rgba(244, 63, 134, 0.55);
+  filter: brightness(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   CARD 3: LIVE LOCATION RADAR MAP CARD
+   -------------------------------------------------------------------------- */
+.dashboard-card-map {
+  background: #130D2B;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.map-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.map-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.map-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #10B981;
+}
+
+.map-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 6px #10B981;
+  animation: pulse-dot 1.5s infinite;
+}
+
+.map-canvas-container {
+  flex: 1;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #090514;
+  min-height: 250px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Dark SVG City Streets Pattern */
+.map-dark-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* User Location Pin with Avatar & Radar */
+.map-user-pin-wrapper {
+  position: absolute;
+  top: 55%;
+  left: 36%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Radar Pulse Rings */
+.map-radar-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(244, 63, 94, 0.35);
+  pointer-events: none;
+  animation: radar-sweep 2.5s infinite cubic-bezier(0.1, 0.7, 0.1, 1);
+}
+
+.map-radar-ring.ring-1 {
+  width: 90px;
+  height: 90px;
+}
+
+.map-radar-ring.ring-2 {
+  width: 170px;
+  height: 170px;
+  animation-delay: 0.8s;
+}
+
+.map-radar-ring.ring-3 {
+  width: 250px;
+  height: 250px;
+  animation-delay: 1.6s;
+}
+
+@keyframes radar-sweep {
+  0% { transform: translate(-50%, -50%) scale(0.4); opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0; }
+}
+
+/* Avatar in Map Pin */
+.map-user-avatar-pin {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2.5px solid #FF3377;
+  box-shadow: 0 0 16px rgba(255, 51, 119, 0.6);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  background: #110B24;
+}
+
+.map-user-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-user-pin-stem {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FF3377;
+  box-shadow: 0 0 8px #FF3377;
+  margin-top: 2px;
+}
+
+/* Destination Home Pin */
+.map-dest-pin-wrapper {
+  position: absolute;
+  top: 28%;
+  left: 78%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.map-dest-pin {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7C3AED 0%, #9333EA 100%);
+  box-shadow: 0 0 14px rgba(124, 58, 237, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Zoom Controls (+ / -) */
+.map-zoom-controls {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 20;
+}
+
+.map-zoom-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(19, 13, 43, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.map-zoom-btn:hover {
+  background: rgba(124, 58, 237, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   CARD 4: SAFETY SCORE RADIAL ARC GAUGE CARD
+   -------------------------------------------------------------------------- */
+.dashboard-card-score {
+  background: #130D2B;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 350px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  box-sizing: border-box;
+}
+
+.score-card-title {
+  font-size: 16.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+/* Semi-circular Gauge Center Area */
+.score-gauge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 8px 0;
+}
+
+.score-gauge-svg {
+  width: 230px;
+  height: 130px;
+}
+
+.score-text-overlay {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.score-number {
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1;
+  color: #FFFFFF;
+  letter-spacing: -1px;
+}
+
+.score-total {
+  font-size: 13px;
+  color: #8C86A5;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.score-rating-badge {
+  font-size: 13px;
+  font-weight: 700;
+  color: #10B981;
+  margin-top: 4px;
+}
+
+.btn-improve-score {
+  width: 100%;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(167, 139, 250, 0.24);
+  color: #E9D5FF;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-improve-score:hover {
+  background: rgba(124, 58, 237, 0.32);
+  border-color: rgba(167, 139, 250, 0.5);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   MODALS (How It Works & Safety Score Checklist)
+   ========================================================================== */
+.dashboard-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(7, 4, 18, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+  animation: fadeIn 0.2s ease;
+}
+
+.dashboard-modal {
+  width: 100%;
+  max-width: 520px;
+  background: #140E2F;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 28px 32px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  position: relative;
+}
+
+.dashboard-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.dashboard-modal-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.dashboard-modal-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.dashboard-modal-close:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.modal-step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.modal-step-item {
+  display: flex;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.modal-step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: #7C3AED;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-step-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 3px;
+}
+
+.modal-step-desc {
+  font-size: 12.5px;
+  color: #A19BB8;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .dashboard-grid-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .dashboard-main {
+    padding: 20px 24px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-sidebar {
+    display: none; /* Collapses to bottom nav on smartphone screens */
+  }
+
+  .dashboard-main {
+    padding: 16px 16px 80px;
+  }
+
+  .dashboard-welcome-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .dashboard-welcome-widgets {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .dashboard-card-panic {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+  }
+
+  .dashboard-card-calm {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+  }
+
+  .btn-how-it-works {
+    margin: 0 auto;
+  }
+}

@@ -9,6 +9,7 @@ import AppShell from "./components/common/AppShell";
 
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
+import DashboardOverview from "./components/dashboard/DashboardOverview";
 import Home from "./components/pages/Home";
 import Dashboard from "./components/pages/Dashboard";
 import Alerts from "./components/pages/Alerts";
@@ -26,10 +27,15 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* Authenticated app shell (bottom nav + mobile frame) */}
+          {/* Authenticated */}
           <Route element={<ProtectedRoute />}>
+            {/* Main Desktop/Tablet Dashboard Overview matching design */}
+            <Route path="/" element={<DashboardOverview />} />
+            <Route path="/dashboard" element={<DashboardOverview />} />
+
+            {/* Authenticated app shell for other screens */}
             <Route element={<AppShell />}>
-              <Route path="/" element={<Home />} />
+              <Route path="/home-legacy" element={<Home />} />
               <Route path="/safety" element={<Dashboard />} />
               <Route path="/alerts" element={<Alerts />} />
               <Route path="/profile" element={<EmergencyContacts />} />
