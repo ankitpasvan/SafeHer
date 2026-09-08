@@ -12,6 +12,7 @@ import Register from "./components/pages/Register";
 import DashboardOverview from "./components/dashboard/DashboardOverview";
 import LiveTracking from "./components/tracking/LiveTracking";
 import PanicFlow from "./components/flow/PanicFlow";
+import ContactsOverview from "./components/contacts/ContactsOverview";
 import Home from "./components/pages/Home";
 import Dashboard from "./components/pages/Dashboard";
 import Alerts from "./components/pages/Alerts";
@@ -43,13 +44,17 @@ function App() {
             <Route path="/flow" element={<PanicFlow />} />
             <Route path="/panic-flow" element={<PanicFlow />} />
 
+            {/* Emergency Contacts matching Slide 5 design */}
+            <Route path="/contacts" element={<ContactsOverview />} />
+            <Route path="/profile" element={<ContactsOverview />} />
+
             {/* Authenticated app shell for other screens */}
             <Route element={<AppShell />}>
               <Route path="/safe-routes" element={<SafeRoutes />} />
               <Route path="/home-legacy" element={<Home />} />
               <Route path="/safety" element={<Dashboard />} />
               <Route path="/alerts" element={<Alerts />} />
-              <Route path="/profile" element={<EmergencyContacts />} />
+              <Route path="/profile-legacy" element={<EmergencyContacts />} />
             </Route>
 
             {/* Drill-down screens (no bottom nav, own back button) */}

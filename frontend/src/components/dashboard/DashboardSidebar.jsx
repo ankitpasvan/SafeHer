@@ -19,7 +19,7 @@ export default function DashboardSidebar({ onOpenGuide, onOpenHelpline, onOpenSe
   const isExplore = location.pathname === "/explore" || location.pathname === "/tracking";
   const isAlerts = location.pathname === "/alerts";
   const isSafety = location.pathname === "/safety";
-  const isProfile = location.pathname === "/profile";
+  const isProfile = location.pathname === "/profile" || location.pathname === "/contacts";
   const isFlow = location.pathname === "/flow" || location.pathname === "/panic-flow";
 
   return (
@@ -97,9 +97,9 @@ export default function DashboardSidebar({ onOpenGuide, onOpenHelpline, onOpenSe
           <button
             type="button"
             className={`dashboard-nav-btn ${isProfile ? "active" : ""}`}
-            onClick={() => navigate("/profile")}
-            title="Safety Circle & Community"
-            aria-label="Community"
+            onClick={() => navigate("/contacts")}
+            title="Emergency Contacts & Trusted Circle (Slide 5)"
+            aria-label="Emergency Contacts"
           >
             <NavUsersIcon width={22} height={22} />
           </button>
