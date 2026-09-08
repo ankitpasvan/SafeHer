@@ -45,7 +45,17 @@ export default function SafetyScoreDetail() {
       <main className="score-detail-main">
         {/* Header */}
         <header className="score-detail-header">
-          <div className="score-detail-slide-tag">Slide 6</div>
+          <div className="slide-header-top-row">
+            <button
+              type="button"
+              className="slide-back-btn"
+              onClick={() => navigate("/")}
+              title="Return to Dashboard Overview"
+            >
+              ← Back to Dashboard
+            </button>
+            <div className="score-detail-slide-tag">Slide 6</div>
+          </div>
           <h1 className="score-detail-title">Safety Score</h1>
           <p className="score-detail-subtitle">Your safety. Your progress.</p>
         </header>

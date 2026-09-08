@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import DashboardSidebar from "../dashboard/DashboardSidebar";
 import BottomNav from "../common/BottomNav";
 import { SafeHerLogo } from "../auth/AuthIcons";
@@ -54,13 +55,14 @@ function StepArrowIcon() {
 }
 
 export default function PanicFlow() {
+  const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(null);
 
   return (
     <div className="flow-shell">
       {/* Left Navigation Rail */}
       <DashboardSidebar
-        onOpenGuide={() => {}}
+        onOpenGuide={() => navigate("/flow")}
         onOpenHelpline={() => {
           window.location.href = "tel:112";
         }}
@@ -71,7 +73,17 @@ export default function PanicFlow() {
       <main className="flow-main">
         {/* Header */}
         <header className="flow-header">
-          <div className="flow-slide-tag">Slide 4</div>
+          <div className="slide-header-top-row">
+            <button
+              type="button"
+              className="slide-back-btn"
+              onClick={() => navigate("/")}
+              title="Return to Dashboard Overview"
+            >
+              ← Back to Dashboard
+            </button>
+            <div className="flow-slide-tag">Slide 4</div>
+          </div>
           <h1 className="flow-title">Panic Button Flow</h1>
           <p className="flow-subtitle">One tap. Instant help.</p>
         </header>

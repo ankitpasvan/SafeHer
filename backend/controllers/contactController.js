@@ -6,7 +6,7 @@ const Contact = require("../models/Contact");
 // @access  Private
 const addContact = async (req, res) => {
   try {
-    const { name, phone, email, relation, isPrimary } = req.body;
+    const { name, phone, email, relation, relationship, avatar, isPrimary } = req.body;
 
     if (!name || !phone) {
       return res.status(400).json({ message: "Name and phone are required" });
@@ -15,11 +15,13 @@ const addContact = async (req, res) => {
     // req.user.id comes from authMiddleware -> the logged-in user
     const contact = await Contact.create({
       user: req.user.id,
-      name,
-      phone,
-      email,
-      relation,
-      isPrimary,
+      name: name.trim(),
+      phone: phone.trim(),
+      email: email ? email.trim() : "",
+      relation: relation || relationship || "Family",
+      relationship: relationship || relation || "Family",
+      avatar: avatar || "/user-avatar.jpg",
+      isPrimary: Boolean(isPrimary),
     });
 
     res.status(201).json(contact);
@@ -34,7 +36,42 @@ const addContact = async (req, res) => {
 const getContacts = async (req, res) => {
   try {
     // Only fetch contacts belonging to this user (data isolation)
-    const contacts = await Contact.find({ user: req.user.id });
+    let contacts = await Contact.find({ user: req.user.id });
+
+    // If new user with no contacts, seed the default 3 guardian circle contacts
+    if (contacts.length === 0) {
+      const defaultContacts = [
+        {
+          user: req.user.id,
+          name: "Mom",
+          phone: "+91 98765 43210",
+          relation: "Family",
+          relationship: "Family",
+          avatar: "/avatar-mom.jpg",
+          isPrimary: true,
+        },
+        {
+          user: req.user.id,
+          name: "Bestie",
+          phone: "+91 87654 32109",
+          relation: "Best Friend",
+          relationship: "Best Friend",
+          avatar: "/user-avatar.jpg",
+          isPrimary: false,
+        },
+        {
+          user: req.user.id,
+          name: "Brother",
+          phone: "+91 76543 21098",
+          relation: "Family",
+          relationship: "Family",
+          avatar: "/avatar-brother.jpg",
+          isPrimary: false,
+        },
+      ];
+      contacts = await Contact.insertMany(defaultContacts);
+    }
+
     res.status(200).json(contacts);
   } catch (error) {
     res.status(500).json({ message: "Server error", error: error.message });

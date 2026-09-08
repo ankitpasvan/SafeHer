@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import DashboardSidebar from "../dashboard/DashboardSidebar";
 import BottomNav from "../common/BottomNav";
 import { getContacts, addContact } from "../../services/contactApi";
@@ -35,6 +36,7 @@ const DEFAULT_CONTACTS = [
 ];
 
 export default function ContactsOverview() {
+  const navigate = useNavigate();
   const [contacts, setContacts] = useState(DEFAULT_CONTACTS);
   const [showAddModal, setShowAddModal] = useState(false);
   const [quickCallAlert, setQuickCallAlert] = useState("");
@@ -122,7 +124,7 @@ export default function ContactsOverview() {
     <div className="contacts-shell">
       {/* Left Navigation Rail */}
       <DashboardSidebar
-        onOpenGuide={() => {}}
+        onOpenGuide={() => navigate("/flow")}
         onOpenHelpline={() => {
           window.location.href = "tel:112";
         }}
@@ -132,9 +134,20 @@ export default function ContactsOverview() {
       {/* Main Content Area */}
       <main className="contacts-main">
         {/* Header */}
+        <div className="slide-header-top-row">
+          <button
+            type="button"
+            className="slide-back-btn"
+            onClick={() => navigate("/")}
+            title="Return to Dashboard Overview"
+          >
+            ← Back to Dashboard
+          </button>
+          <div className="contacts-slide-tag">Slide 5</div>
+        </div>
+
         <div className="contacts-header-row">
           <div className="contacts-header-left">
-            <div className="contacts-slide-tag">Slide 5</div>
             <h1 className="contacts-title">Emergency Contacts</h1>
             <p className="contacts-subtitle">Your trusted circle.</p>
           </div>

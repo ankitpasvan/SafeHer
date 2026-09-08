@@ -17,12 +17,18 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, "Password is required"],
       minlength: 6,
     },
     phone: {
       type: String,
-      required: [true, "Phone number is required"],
+      default: "",
+    },
+    avatar: {
+      type: String,
+      default: "/user-avatar.jpg",
+    },
+    googleId: {
+      type: String,
     },
     role: {
       type: String,

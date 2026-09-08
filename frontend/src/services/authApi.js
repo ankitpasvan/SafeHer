@@ -8,5 +8,9 @@ export const registerUser = (payload) =>
 export const loginUser = (payload) =>
   api.post("/auth/login", payload).then((res) => res.data);
 
+// POST /api/auth/google
+export const googleLoginApi = (payload = {}) =>
+  api.post("/auth/google", payload).then((res) => res.data);
+
 // GET /api/auth/me
 export const fetchMe = () => api.get("/auth/me").then((res) => res.data);

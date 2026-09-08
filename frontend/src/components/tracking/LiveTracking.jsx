@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import DashboardSidebar from "../dashboard/DashboardSidebar";
 import BottomNav from "../common/BottomNav";
 import { useGeolocation } from "../../hook/useGeolocation";
@@ -12,6 +13,7 @@ import {
 import "../../styles/tracking.css";
 
 export default function LiveTracking() {
+  const navigate = useNavigate();
   const { position, getCurrentPosition } = useGeolocation();
   const [zoom, setZoom] = useState(1);
   const [toastMessage, setToastMessage] = useState("");
@@ -55,7 +57,7 @@ export default function LiveTracking() {
     <div className="tracking-shell">
       {/* Left Navigation Rail */}
       <DashboardSidebar
-        onOpenGuide={() => {}}
+        onOpenGuide={() => navigate("/flow")}
         onOpenHelpline={() => {
           window.location.href = "tel:112";
         }}
@@ -66,7 +68,17 @@ export default function LiveTracking() {
       <main className="tracking-main">
         {/* Header */}
         <header className="tracking-header">
-          <div className="tracking-slide-tag">Slide 3</div>
+          <div className="slide-header-top-row">
+            <button
+              type="button"
+              className="slide-back-btn"
+              onClick={() => navigate("/")}
+              title="Return to Dashboard Overview"
+            >
+              ← Back to Dashboard
+            </button>
+            <div className="tracking-slide-tag">Slide 3</div>
+          </div>
           <h1 className="tracking-title">Live Tracking</h1>
           <p className="tracking-subtitle">Track your real-time location.</p>
         </header>

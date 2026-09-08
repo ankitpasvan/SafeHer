@@ -126,12 +126,23 @@ export default function RecentAlerts() {
 
       {/* Main Content Stage */}
       <main className="alerts-page-main">
+        <div className="slide-header-top-row">
+          <button
+            type="button"
+            className="slide-back-btn"
+            onClick={() => navigate("/")}
+            title="Return to Dashboard Overview"
+          >
+            ← Back to Dashboard
+          </button>
+          <div className="alerts-slide-tag">Slide 7</div>
+        </div>
+
         {/* Master Card Container matching the Slide 7 layout */}
         <section className="alerts-master-card" aria-label="Recent Emergency Alerts">
           {/* Card Top Header */}
           <div className="alerts-card-header">
             <div className="alerts-header-left">
-              <div className="alerts-slide-tag">Slide 7</div>
               <div className="alerts-header-titles">
                 <h1 className="alerts-title">Recent Alerts</h1>
                 <p className="alerts-subtitle">Stay informed. Stay safe.</p>

@@ -13,7 +13,7 @@ import {
 } from "./AuthIcons";
 
 export default function RegisterForm({ onSwitchToLogin }) {
-  const { register } = useAuth();
+  const { register, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
@@ -69,8 +69,17 @@ export default function RegisterForm({ onSwitchToLogin }) {
     }
   };
 
-  const handleSocialAuth = (provider) => {
-    alert(`${provider} registration is enabled for testing. Fill out form or connect OAuth provider.`);
+  const handleSocialAuth = async (provider) => {
+    setError("");
+    setSubmitting(true);
+    try {
+      await loginWithGoogle();
+      navigate("/", { replace: true });
+    } catch (err) {
+      setError(err?.message || `Failed to sign up with ${provider}. Please try again.`);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (

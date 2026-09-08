@@ -177,13 +177,13 @@ export default function DashboardOverview() {
               </div>
             </div>
 
-            {/* Notification Bell */}
+            {/* Notification Bell (Direct link to Slide 7: Recent Alerts) */}
             <button
               type="button"
               className="notification-bell-btn"
-              onClick={() => setShowNotifications(!showNotifications)}
-              title="Notifications"
-              aria-label="Notifications"
+              onClick={() => navigate("/alerts")}
+              title="Click to view Recent Alerts (Slide 7)"
+              aria-label="Recent Alerts"
             >
               <NotificationBellIcon width={19} height={19} />
               <span className="notification-badge-dot" />
@@ -288,8 +288,14 @@ export default function DashboardOverview() {
             </div>
           </section>
 
-          {/* Card 2: Stay Calm Card */}
-          <section className="dashboard-card-calm" aria-label="Emergency Guidance">
+          {/* Card 2: Stay Calm Card (Slide 4: Panic Flow) */}
+          <section
+            className="dashboard-card-calm"
+            aria-label="Emergency Guidance"
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate("/flow")}
+            title="Click to view Emergency Panic Flow (Slide 4)"
+          >
             <div className="calm-image-container">
               <img
                 src="/phone-sos.jpg"
@@ -304,7 +310,10 @@ export default function DashboardOverview() {
               <button
                 type="button"
                 className="btn-how-it-works"
-                onClick={() => navigate("/flow")}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate("/flow");
+                }}
               >
                 <span>How It Works</span>
                 <ArrowRightThinIcon width={16} height={16} />
@@ -317,8 +326,14 @@ export default function DashboardOverview() {
             ROW 2: LIVE LOCATION RADAR MAP & SAFETY SCORE GAUGE
             ========================================================= */}
         <div className="dashboard-grid-row">
-          {/* Card 3: Live Location Map */}
-          <section className="dashboard-card-map" aria-label="Live Geolocation Map">
+          {/* Card 3: Live Location Map (Slide 3: Live Tracking) */}
+          <section
+            className="dashboard-card-map"
+            aria-label="Live Geolocation Map"
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate("/tracking")}
+            title="Click to open full Live Tracking (Slide 3)"
+          >
             <div className="map-card-header">
               <div className="map-card-title">
                 <NavPinIcon width={18} height={18} color="#C084FC" />
@@ -436,8 +451,14 @@ export default function DashboardOverview() {
             </div>
           </section>
 
-          {/* Card 4: Safety Score Radial Arc Gauge */}
-          <section className="dashboard-card-score" aria-label="Personal Safety Score">
+          {/* Card 4: Safety Score Radial Arc Gauge (Slide 6: Safety Score) */}
+          <section
+            className="dashboard-card-score"
+            aria-label="Personal Safety Score"
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate("/safety-score")}
+            title="Click to view Safety Score Breakdown (Slide 6)"
+          >
             <h3 className="score-card-title">Safety Score</h3>
 
             <div className="score-gauge-container">
@@ -465,7 +486,6 @@ export default function DashboardOverview() {
                 />
 
                 {/* 85% Active Score Gauge Arc */}
-                {/* Arc length for 180 deg radius 92: PI * 92 ≈ 289 */}
                 <path
                   d="M 28 120 A 92 92 0 0 1 212 120"
                   fill="none"
@@ -473,7 +493,7 @@ export default function DashboardOverview() {
                   strokeWidth="15"
                   strokeLinecap="round"
                   strokeDasharray="289"
-                  strokeDashoffset="43" /* 289 * (1 - 0.85) = ~43 */
+                  strokeDashoffset="43"
                   filter="url(#arc-glow)"
                 />
               </svg>
@@ -488,11 +508,243 @@ export default function DashboardOverview() {
             <button
               type="button"
               className="btn-improve-score"
-              onClick={() => navigate("/safety-score")}
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate("/safety-score");
+              }}
             >
               <span>Improve Your Score</span>
               <ArrowRightThinIcon width={16} height={16} />
             </button>
+          </section>
+        </div>
+
+        {/* =========================================================
+            ROW 3: RECENT ALERTS (SLIDE 7) & SAFE ZONES (SLIDE 8)
+            ========================================================= */}
+        <div className="dashboard-grid-row">
+          {/* Card 5: Recent Alerts (Slide 7) */}
+          <section
+            className="dashboard-interactive-card"
+            aria-label="Recent Alerts"
+            onClick={() => navigate("/alerts")}
+            title="Click to view all Recent Alerts (Slide 7)"
+          >
+            <div>
+              <div className="dash-card-header">
+                <div className="dash-card-header-left">
+                  <div className="dash-card-icon-badge" style={{ background: "rgba(239, 68, 68, 0.16)", color: "#F43F5E" }}>
+                    🚨
+                  </div>
+                  <div>
+                    <h3 className="dash-card-title">Recent Alerts</h3>
+                    <p className="dash-card-subtitle">Stay informed. Stay safe.</p>
+                  </div>
+                </div>
+                <span className="dash-card-action-link">
+                  View all <ArrowRightThinIcon width={14} height={14} />
+                </span>
+              </div>
+
+              {/* 3 Mini Alert Items */}
+              <div className="dash-mini-alert">
+                <div className="dash-mini-alert-left">
+                  <span style={{ color: "#F43F5E" }}>⚠️</span>
+                  <div>
+                    <div className="dash-mini-alert-title">Panic Alert</div>
+                    <div className="dash-mini-alert-time">Today, 08:24 PM</div>
+                  </div>
+                </div>
+                <span style={{ fontSize: "11px", fontWeight: "700", background: "rgba(225,29,72,0.18)", color: "#FB7185", padding: "4px 10px", borderRadius: "999px" }}>
+                  Resolved
+                </span>
+              </div>
+
+              <div className="dash-mini-alert">
+                <div className="dash-mini-alert-left">
+                  <span style={{ color: "#F59E0B" }}>🔔</span>
+                  <div>
+                    <div className="dash-mini-alert-title">Safe Zone Exited</div>
+                    <div className="dash-mini-alert-time">Today, 07:10 PM</div>
+                  </div>
+                </div>
+                <span style={{ fontSize: "11px", fontWeight: "700", background: "rgba(245,158,11,0.18)", color: "#FBBF24", padding: "4px 10px", borderRadius: "999px" }}>
+                  Warning
+                </span>
+              </div>
+
+              <div className="dash-mini-alert" style={{ marginBottom: 0 }}>
+                <div className="dash-mini-alert-left">
+                  <span style={{ color: "#38BDF8" }}>🛡️</span>
+                  <div>
+                    <div className="dash-mini-alert-title">Check-in Missed</div>
+                    <div className="dash-mini-alert-time">Today, 06:30 PM</div>
+                  </div>
+                </div>
+                <span style={{ fontSize: "11px", fontWeight: "700", background: "rgba(14,165,233,0.18)", color: "#38BDF8", padding: "4px 10px", borderRadius: "999px" }}>
+                  Info
+                </span>
+              </div>
+            </div>
+          </section>
+
+          {/* Card 6: Safe Zones & Community (Slide 8) */}
+          <section
+            className="dashboard-interactive-card"
+            aria-label="Safe Zones and Community"
+            onClick={() => navigate("/safe-zones")}
+            title="Click to manage Safe Zones & Community (Slide 8)"
+          >
+            <div>
+              <div className="dash-card-header">
+                <div className="dash-card-header-left">
+                  <div className="dash-card-icon-badge" style={{ background: "rgba(16, 185, 129, 0.16)", color: "#10B981" }}>
+                    🛡️
+                  </div>
+                  <div>
+                    <h3 className="dash-card-title">Safe Zones</h3>
+                    <p className="dash-card-subtitle">Active Perimeter Defense</p>
+                  </div>
+                </div>
+                <span className="dash-card-action-link">
+                  Manage <ArrowRightThinIcon width={14} height={14} />
+                </span>
+              </div>
+
+              {/* 3 Mini Zone Rows */}
+              <div className="dash-mini-zone">
+                <div className="dash-mini-zone-left">
+                  <span style={{ color: "#10B981" }}>🏠</span>
+                  <div>
+                    <div className="dash-mini-zone-name">Home</div>
+                    <div className="dash-mini-zone-addr">12, Green Park, New Delhi</div>
+                  </div>
+                </div>
+                <span style={{ fontSize: "11px", fontWeight: "700", color: "#10B981" }}>● ACTIVE</span>
+              </div>
+
+              <div className="dash-mini-zone">
+                <div className="dash-mini-zone-left">
+                  <span style={{ color: "#14B8A6" }}>🏛️</span>
+                  <div>
+                    <div className="dash-mini-zone-name">College</div>
+                    <div className="dash-mini-zone-addr">AKGEC, Ghaziabad</div>
+                  </div>
+                </div>
+                <span style={{ fontSize: "11px", fontWeight: "700", color: "#10B981" }}>● ACTIVE</span>
+              </div>
+
+              <div className="dash-mini-zone" style={{ marginBottom: 0 }}>
+                <div className="dash-mini-zone-left">
+                  <span style={{ color: "#F59E0B" }}>💼</span>
+                  <div>
+                    <div className="dash-mini-zone-name">Work</div>
+                    <div className="dash-mini-zone-addr">Connaught Place, New Delhi</div>
+                  </div>
+                </div>
+                <span style={{ fontSize: "11px", fontWeight: "700", color: "#8C86A5" }}>○ INACTIVE</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* =========================================================
+            ROW 4: SELF DEFENSE & TOOLS (SLIDE 9) & CONTACTS (SLIDE 5)
+            ========================================================= */}
+        <div className="dashboard-grid-row">
+          {/* Card 7: Self Defense Tips & Safety Tools (Slide 9) */}
+          <section
+            className="dashboard-interactive-card"
+            aria-label="Self Defense Tips and Safety Tools"
+            onClick={() => navigate("/tips")}
+            title="Click to open Crisis Safety Tools & Video Lessons (Slide 9)"
+          >
+            <div>
+              <div className="dash-card-header">
+                <div className="dash-card-header-left">
+                  <div className="dash-card-icon-badge" style={{ background: "rgba(124, 58, 237, 0.16)", color: "#C084FC" }}>
+                    🥋
+                  </div>
+                  <div>
+                    <h3 className="dash-card-title">Tips &amp; Safety Tools</h3>
+                    <p className="dash-card-subtitle">Instant Crisis Tools &amp; Video Lessons</p>
+                  </div>
+                </div>
+                <span className="dash-card-action-link">
+                  Open Tools <ArrowRightThinIcon width={14} height={14} />
+                </span>
+              </div>
+
+              <p style={{ fontSize: "13px", color: "#B8B3CE", margin: "0 0 10px" }}>
+                ▶ 5 Basic Moves Every Woman Should Know (04:35)
+              </p>
+
+              {/* 5 Tool Quick Badges */}
+              <div className="dash-mini-tools-row">
+                <span className="dash-mini-tool-pill">🎙️ Audio</span>
+                <span className="dash-mini-tool-pill" style={{ color: "#34D399" }}>📞 Fake Call</span>
+                <span className="dash-mini-tool-pill" style={{ color: "#FBBF24" }}>💡 Torch</span>
+                <span className="dash-mini-tool-pill" style={{ color: "#FB7185" }}>🚨 Siren</span>
+                <span className="dash-mini-tool-pill" style={{ color: "#38BDF8" }}>📸 Screenshot</span>
+              </div>
+            </div>
+
+            <div style={{ marginTop: "14px", display: "flex", justifyContent: "space-between", alignItems: "center", background: "rgba(244,63,134,0.1)", padding: "8px 14px", borderRadius: "10px", border: "1px solid rgba(244,63,134,0.25)" }}>
+              <span style={{ fontSize: "12px", color: "#F43F86", fontWeight: "700" }}>24/7 Crisis Hotline</span>
+              <span style={{ fontSize: "13px", color: "#FFFFFF", fontWeight: "800" }}>1800-123-4567</span>
+            </div>
+          </section>
+
+          {/* Card 8: Emergency Contacts (Slide 5) */}
+          <section
+            className="dashboard-interactive-card"
+            aria-label="Emergency Contacts"
+            onClick={() => navigate("/contacts")}
+            title="Click to manage Emergency Contacts Circle (Slide 5)"
+          >
+            <div>
+              <div className="dash-card-header">
+                <div className="dash-card-header-left">
+                  <div className="dash-card-icon-badge" style={{ background: "rgba(99, 102, 241, 0.16)", color: "#818CF8" }}>
+                    👥
+                  </div>
+                  <div>
+                    <h3 className="dash-card-title">Emergency Contacts</h3>
+                    <p className="dash-card-subtitle">Your Trusted Circle</p>
+                  </div>
+                </div>
+                <span className="dash-card-action-link">
+                  View Circle <ArrowRightThinIcon width={14} height={14} />
+                </span>
+              </div>
+
+              <p style={{ fontSize: "13px", color: "#8C86A5", margin: "0 0 10px" }}>
+                3 Primary guardians armed for instant SOS live GPS and audio dispatch:
+              </p>
+
+              {/* 3 Contact Mini Chips */}
+              <div className="dash-mini-contacts-row">
+                <div className="dash-mini-contact-chip">
+                  <img src="/avatar-mom.jpg" alt="Mom" className="dash-mini-contact-avatar" onError={(e) => { e.target.src = "/user-avatar.jpg"; }} />
+                  <span className="dash-mini-contact-name">Mom</span>
+                </div>
+
+                <div className="dash-mini-contact-chip">
+                  <img src="/user-avatar.jpg" alt="Bestie" className="dash-mini-contact-avatar" />
+                  <span className="dash-mini-contact-name">Bestie</span>
+                </div>
+
+                <div className="dash-mini-contact-chip">
+                  <img src="/avatar-brother.jpg" alt="Brother" className="dash-mini-contact-avatar" onError={(e) => { e.target.src = "/user-avatar.jpg"; }} />
+                  <span className="dash-mini-contact-name">Brother</span>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ marginTop: "14px", display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "#10B981" }}>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#10B981", boxShadow: "0 0 8px #10B981" }} />
+              <span>SOS broadcast link armed &amp; ready</span>
+            </div>
           </section>
         </div>
       </main>

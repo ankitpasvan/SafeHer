@@ -30,11 +30,23 @@ const incidentRoutes = require("./routes/incidentRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const mapRoutes = require("./routes/mapRoutes");
 const locationRoutes = require("./routes/locationRoutes");
+const zoneRoutes = require("./routes/zoneRoutes");
+const communityRoutes = require("./routes/communityRoutes");
+const alertRoutes = require("./routes/alertRoutes");
+const scoreRoutes = require("./routes/scoreRoutes");
+const toolRoutes = require("./routes/toolRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 // Mount routes onto base paths
-app.use("/api/auth", authRoutes); // /api/auth/register, /api/auth/login, /api/auth/me
+app.use("/api/auth", authRoutes); // /api/auth/register, /api/auth/login, /api/auth/google, /api/auth/me
 app.use("/api/contacts", contactRoutes); // /api/contacts (CRUD)
-app.use("/api/sos", sosRoutes); // /api/sos/trigger, /api/sos/history
+app.use("/api/sos", sosRoutes); // /api/sos/trigger, /api/sos/history, /api/sos/resolve-latest
+app.use("/api/zones", zoneRoutes); // /api/zones (Safe Zones CRUD & toggle)
+app.use("/api/community", communityRoutes); // /api/community (solidarity feed, likes, comments)
+app.use("/api/alerts", alertRoutes); // /api/alerts (Recent Alerts)
+app.use("/api/score", scoreRoutes); // /api/score (Safety Score calculation)
+app.use("/api/tools", toolRoutes); // /api/tools (Self Defense tips & crisis tools)
+app.use("/api/dashboard", dashboardRoutes); // /api/dashboard/overview
 app.use("/api/incidents", incidentRoutes); // /api/incidents (report + view)
 app.use("/api/admin", adminRoutes); // /api/admin/stats, /api/admin/users
 app.use("/api/map", mapRoutes); // /api/map/safe-route, /api/map/nearby/police

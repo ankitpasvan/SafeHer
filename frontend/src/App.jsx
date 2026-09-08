@@ -15,6 +15,8 @@ import PanicFlow from "./components/flow/PanicFlow";
 import ContactsOverview from "./components/contacts/ContactsOverview";
 import SafetyScoreDetail from "./components/score/SafetyScoreDetail";
 import RecentAlerts from "./components/alerts/RecentAlerts";
+import SafeZonesCommunity from "./components/zones/SafeZonesCommunity";
+import SelfDefenseTools from "./components/tools/SelfDefenseTools";
 import Home from "./components/pages/Home";
 import Dashboard from "./components/pages/Dashboard";
 import Alerts from "./components/pages/Alerts";
@@ -57,6 +59,14 @@ function App() {
 
             {/* Recent Alerts matching Slide 7 design */}
             <Route path="/alerts" element={<RecentAlerts />} />
+
+            {/* Safe Zones & Community matching Slide 8 design */}
+            <Route path="/safe-zones" element={<SafeZonesCommunity />} />
+            <Route path="/community" element={<SafeZonesCommunity />} />
+
+            {/* Self Defense Tips & Safety Tools matching Slide 9 design */}
+            <Route path="/tips" element={<SelfDefenseTools />} />
+            <Route path="/tools" element={<SelfDefenseTools />} />
 
             {/* Authenticated app shell for other screens */}
             <Route element={<AppShell />}>

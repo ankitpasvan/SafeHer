@@ -23,8 +23,17 @@ const contactSchema = new mongoose.Schema(
       trim: true,
     },
     relation: {
-      type: String, // e.g. Father, Friend, Sister
+      type: String, // e.g. Mother, Best Friend, Brother, Family
       trim: true,
+      default: "Family",
+    },
+    relationship: {
+      type: String,
+      trim: true,
+    },
+    avatar: {
+      type: String,
+      default: "/user-avatar.jpg",
     },
     isPrimary: {
       type: Boolean,

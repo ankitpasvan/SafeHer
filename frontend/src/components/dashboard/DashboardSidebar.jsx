@@ -18,9 +18,11 @@ export default function DashboardSidebar({ onOpenGuide, onOpenHelpline, onOpenSe
   const isHome = location.pathname === "/" || location.pathname === "/dashboard";
   const isExplore = location.pathname === "/explore" || location.pathname === "/tracking";
   const isAlerts = location.pathname === "/alerts";
+  const isZones = location.pathname === "/safe-zones" || location.pathname === "/community";
   const isSafety = location.pathname === "/safety" || location.pathname === "/safety-score" || location.pathname === "/score";
   const isProfile = location.pathname === "/profile" || location.pathname === "/contacts";
   const isFlow = location.pathname === "/flow" || location.pathname === "/panic-flow";
+  const isTips = location.pathname === "/tips" || location.pathname === "/tools";
 
   return (
     <aside className="dashboard-sidebar" aria-label="Main Navigation">
@@ -60,18 +62,32 @@ export default function DashboardSidebar({ onOpenGuide, onOpenHelpline, onOpenSe
             <NavPinIcon width={22} height={22} />
           </button>
 
-          {/* 3. Siren / SOS Alerts */}
+          {/* 3. Siren / SOS Alerts (Slide 7) */}
           <button
             type="button"
             className={`dashboard-nav-btn ${isAlerts ? "active" : ""}`}
             onClick={() => navigate("/alerts")}
-            title="SOS Alerts & Siren"
+            title="SOS Alerts & Siren (Slide 7)"
             aria-label="Alerts"
           >
             <NavSirenIcon width={22} height={22} />
           </button>
 
-          {/* 4. Safe Zones & Safety Score (Slide 6) */}
+          {/* 4. Safe Zones & Community (Slide 8) */}
+          <button
+            type="button"
+            className={`dashboard-nav-btn ${isZones ? "active" : ""}`}
+            onClick={() => navigate("/safe-zones")}
+            title="Safe Zones & Community (Slide 8)"
+            aria-label="Safe Zones"
+          >
+            <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+          </button>
+
+          {/* 5. Safety Score (Slide 6) */}
           <button
             type="button"
             className={`dashboard-nav-btn ${isSafety ? "active" : ""}`}
@@ -113,6 +129,19 @@ export default function DashboardSidebar({ onOpenGuide, onOpenHelpline, onOpenSe
             aria-label="Panic Flow"
           >
             <NavBookIcon width={22} height={22} />
+          </button>
+
+          {/* 8. Self Defense Tips & Safety Tools (Slide 9) */}
+          <button
+            type="button"
+            className={`dashboard-nav-btn ${isTips ? "active" : ""}`}
+            onClick={() => navigate("/tips")}
+            title="Self Defense Tips & Safety Tools (Slide 9)"
+            aria-label="Tips & Tools"
+          >
+            <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
           </button>
         </nav>
       </div>

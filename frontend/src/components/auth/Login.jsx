@@ -12,7 +12,7 @@ import {
 } from "./AuthIcons";
 
 export default function LoginForm({ onSwitchToRegister }) {
-  const { login } = useAuth();
+  const { login, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [identifier, setIdentifier] = useState("");
@@ -46,8 +46,18 @@ export default function LoginForm({ onSwitchToRegister }) {
     }
   };
 
-  const handleSocialAuth = (provider) => {
-    alert(`${provider} sign-in is enabled for testing. Use standard credentials or connect OAuth provider.`);
+  const handleSocialAuth = async (provider) => {
+    setError("");
+    setSubmitting(true);
+    try {
+      await loginWithGoogle();
+      const redirectTo = location.state?.from || "/";
+      navigate(redirectTo, { replace: true });
+    } catch (err) {
+      setError(err?.message || `Failed to sign in with ${provider}. Please try again.`);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleForgotPassword = (e) => {
