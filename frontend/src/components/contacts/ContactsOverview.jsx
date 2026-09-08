@@ -7,7 +7,9 @@ import {
   ContactMessageIcon,
   QuickCallPhoneIcon,
 } from "./ContactsIcons";
+import SlideQuickSwitcher from "../common/SlideQuickSwitcher";
 import "../../styles/contacts.css";
+import "../../styles/slides-7-8-9.css";
 
 // Default contacts matching the design
 const DEFAULT_CONTACTS = [
@@ -131,6 +133,9 @@ export default function ContactsOverview() {
 
       {/* Main Content Area */}
       <main className="contacts-main">
+        {/* Top Slide Quick Switcher */}
+        <SlideQuickSwitcher currentSlide={5} />
+
         {/* Header */}
         <div className="contacts-header-row">
           <div className="contacts-header-left">

@@ -9,7 +9,9 @@ import {
   ClockHistoryIcon,
   HomeBadgeIcon,
 } from "./TrackingIcons";
+import SlideQuickSwitcher from "../common/SlideQuickSwitcher";
 import "../../styles/tracking.css";
+import "../../styles/slides-7-8-9.css";
 
 export default function LiveTracking() {
   const { position, getCurrentPosition } = useGeolocation();
@@ -64,6 +66,9 @@ export default function LiveTracking() {
 
       {/* Main Stage */}
       <main className="tracking-main">
+        {/* Top Slide Quick Switcher */}
+        <SlideQuickSwitcher currentSlide={3} />
+
         {/* Header */}
         <header className="tracking-header">
           <div className="tracking-slide-tag">Slide 3</div>

@@ -13,6 +13,10 @@ import DashboardOverview from "./components/dashboard/DashboardOverview";
 import LiveTracking from "./components/tracking/LiveTracking";
 import PanicFlow from "./components/flow/PanicFlow";
 import ContactsOverview from "./components/contacts/ContactsOverview";
+import SafetyScoreDetail from "./components/score/SafetyScoreDetail";
+import RecentAlerts from "./components/alerts/RecentAlerts";
+import SafeZonesCommunity from "./components/zones/SafeZonesCommunity";
+import SelfDefenseTools from "./components/tools/SelfDefenseTools";
 import Home from "./components/pages/Home";
 import Dashboard from "./components/pages/Dashboard";
 import Alerts from "./components/pages/Alerts";
@@ -48,12 +52,28 @@ function App() {
             <Route path="/contacts" element={<ContactsOverview />} />
             <Route path="/profile" element={<ContactsOverview />} />
 
-            {/* Authenticated app shell for other screens */}
+            {/* Safety Score matching Slide 6 design */}
+            <Route path="/safety-score" element={<SafetyScoreDetail />} />
+            <Route path="/score" element={<SafetyScoreDetail />} />
+            <Route path="/safety" element={<SafetyScoreDetail />} />
+
+            {/* Slide 7: Recent Alerts */}
+            <Route path="/alerts" element={<RecentAlerts />} />
+
+            {/* Slide 8: Safe Zones & Community Safety */}
+            <Route path="/safe-zones" element={<SafeZonesCommunity />} />
+            <Route path="/community" element={<SafeZonesCommunity />} />
+
+            {/* Slide 9: Self Defense Tips & Safety Tools */}
+            <Route path="/tips" element={<SelfDefenseTools />} />
+            <Route path="/tools" element={<SelfDefenseTools />} />
+
+            {/* Authenticated app shell for legacy screens */}
             <Route element={<AppShell />}>
               <Route path="/safe-routes" element={<SafeRoutes />} />
               <Route path="/home-legacy" element={<Home />} />
-              <Route path="/safety" element={<Dashboard />} />
-              <Route path="/alerts" element={<Alerts />} />
+              <Route path="/safety-legacy" element={<Dashboard />} />
+              <Route path="/alerts-legacy" element={<Alerts />} />
               <Route path="/profile-legacy" element={<EmergencyContacts />} />
             </Route>
 
