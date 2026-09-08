@@ -13,9 +13,7 @@ import {
   HomePinIcon,
   ArrowRightThinIcon,
 } from "./DashboardIcons";
-import SlideQuickSwitcher from "../common/SlideQuickSwitcher";
 import "../../styles/dashboard.css";
-import "../../styles/slides-7-8-9.css";
 
 export default function DashboardOverview() {
   const { user } = useAuth();
@@ -139,9 +137,6 @@ export default function DashboardOverview() {
           MAIN DASHBOARD OVERVIEW CONTENT
           ========================================================= */}
       <main className="dashboard-main">
-        {/* Top Suite Quick Navigator */}
-        <SlideQuickSwitcher currentSlide={2} />
-
         {/* Top Header */}
         <header className="dashboard-header">
           <div className="dashboard-slide-tag">Slide 2</div>
@@ -498,79 +493,6 @@ export default function DashboardOverview() {
               <span>Improve Your Score</span>
               <ArrowRightThinIcon width={16} height={16} />
             </button>
-          </section>
-        </div>
-
-        {/* =========================================================
-            ROW 3: COMPREHENSIVE SUITE EXTENSION (SLIDES 7, 8, 9)
-            ========================================================= */}
-        <div className="dashboard-grid-row" style={{ marginTop: "24px" }}>
-          {/* Card: Recent Alerts Preview (Slide 7) */}
-          <section
-            className="dashboard-card-score"
-            style={{ flex: 1, cursor: "pointer", transition: "transform 0.2s ease" }}
-            onClick={() => navigate("/alerts")}
-          >
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <span style={{ fontSize: "20px" }}>🚨</span>
-                <h3 className="score-card-title" style={{ margin: 0 }}>Recent Alerts</h3>
-              </div>
-              <span className="suite-view-all-link">View all →</span>
-            </div>
-            <p style={{ fontSize: "13px", color: "#8C86A5", margin: "0 0 14px", lineHeight: "1.4" }}>
-              3 new alerts recorded today: 1 Panic resolved, 1 Safe zone warning.
-            </p>
-            <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <span className="alert-status-badge badge-resolved" style={{ fontSize: "11px", padding: "4px 12px" }}>Resolved</span>
-              <span className="alert-status-badge badge-warning" style={{ fontSize: "11px", padding: "4px 12px" }}>Warning</span>
-              <span className="alert-status-badge badge-info" style={{ fontSize: "11px", padding: "4px 12px" }}>Info</span>
-            </div>
-          </section>
-
-          {/* Card: Safe Zones Preview (Slide 8) */}
-          <section
-            className="dashboard-card-score"
-            style={{ flex: 1, cursor: "pointer", transition: "transform 0.2s ease" }}
-            onClick={() => navigate("/safe-zones")}
-          >
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <span style={{ fontSize: "20px" }}>🛡️</span>
-                <h3 className="score-card-title" style={{ margin: 0 }}>Safe Zones</h3>
-              </div>
-              <span className="suite-view-all-link">Manage →</span>
-            </div>
-            <p style={{ fontSize: "13px", color: "#8C86A5", margin: "0 0 14px", lineHeight: "1.4" }}>
-              2 Active geofences (Home, College). 1 Inactive (Work).
-            </p>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "#10B981" }}>
-              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#10B981", display: "inline-block", boxShadow: "0 0 8px #10B981" }} />
-              <span>Perimeter Guardian Armed</span>
-            </div>
-          </section>
-
-          {/* Card: Self Defense & Tools (Slide 9) */}
-          <section
-            className="dashboard-card-score"
-            style={{ flex: 1, cursor: "pointer", transition: "transform 0.2s ease" }}
-            onClick={() => navigate("/tips")}
-          >
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <span style={{ fontSize: "20px" }}>🥋</span>
-                <h3 className="score-card-title" style={{ margin: 0 }}>Tips &amp; Tools</h3>
-              </div>
-              <span className="suite-view-all-link">Open →</span>
-            </div>
-            <p style={{ fontSize: "13px", color: "#8C86A5", margin: "0 0 14px", lineHeight: "1.4" }}>
-              5 Instant Crisis Tools (Fake Call, Siren, Flashlight) &amp; Defense Video.
-            </p>
-            <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
-              <span style={{ fontSize: "11px", background: "rgba(124,58,237,0.2)", padding: "4px 8px", borderRadius: "6px", color: "#C084FC" }}>🎙️ Audio</span>
-              <span style={{ fontSize: "11px", background: "rgba(16,185,129,0.2)", padding: "4px 8px", borderRadius: "6px", color: "#34D399" }}>📞 Fake Call</span>
-              <span style={{ fontSize: "11px", background: "rgba(239,68,68,0.2)", padding: "4px 8px", borderRadius: "6px", color: "#F87171" }}>🚨 Siren</span>
-            </div>
           </section>
         </div>
       </main>

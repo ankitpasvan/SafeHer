@@ -15,9 +15,7 @@ import {
 } from "./AuthIcons";
 import LoginForm from "./Login";
 import RegisterForm from "./Register";
-import SlideQuickSwitcher from "../common/SlideQuickSwitcher";
 import "../../styles/auth-split.css";
-import "../../styles/slides-7-8-9.css";
 
 export default function AuthLayout({ initialTab = "login" }) {
   const location = useLocation();
@@ -53,9 +51,6 @@ export default function AuthLayout({ initialTab = "login" }) {
 
   return (
     <div className="auth-split-wrapper">
-      <div style={{ maxWidth: "1080px", width: "100%", marginBottom: "16px" }}>
-        <SlideQuickSwitcher currentSlide={1} />
-      </div>
       <div className="auth-split-card">
         {/* =========================================================
             LEFT COLUMN: Atmospheric Dark Hero & Value Propositions

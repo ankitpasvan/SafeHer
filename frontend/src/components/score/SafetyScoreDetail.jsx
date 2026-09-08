@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom";
 import DashboardSidebar from "../dashboard/DashboardSidebar";
 import BottomNav from "../common/BottomNav";
 import { ArrowRightThinIcon } from "../dashboard/DashboardIcons";
-import SlideQuickSwitcher from "../common/SlideQuickSwitcher";
 import "../../styles/safety-score.css";
-import "../../styles/slides-7-8-9.css";
 
 // Checkmark Badge Icon
 function MiniCheckIcon({ width = 12, height = 12 }) {
@@ -45,9 +43,6 @@ export default function SafetyScoreDetail() {
 
       {/* Main Content Stage */}
       <main className="score-detail-main">
-        {/* Top Slide Quick Switcher */}
-        <SlideQuickSwitcher currentSlide={6} />
-
         {/* Header */}
         <header className="score-detail-header">
           <div className="score-detail-slide-tag">Slide 6</div>

@@ -3,9 +3,7 @@ import DashboardSidebar from "../dashboard/DashboardSidebar";
 import BottomNav from "../common/BottomNav";
 import { SafeHerLogo } from "../auth/AuthIcons";
 import { PanicTriangleIcon } from "../dashboard/DashboardIcons";
-import SlideQuickSwitcher from "../common/SlideQuickSwitcher";
 import "../../styles/panic-flow.css";
-import "../../styles/slides-7-8-9.css";
 
 // Step 3 Bell Icon
 function BellRingIcon({ width = 48, height = 48, color = "#F43F86" }) {
@@ -71,9 +69,6 @@ export default function PanicFlow() {
 
       {/* Main Flow Stage */}
       <main className="flow-main">
-        {/* Top Slide Quick Switcher */}
-        <SlideQuickSwitcher currentSlide={4} />
-
         {/* Header */}
         <header className="flow-header">
           <div className="flow-slide-tag">Slide 4</div>

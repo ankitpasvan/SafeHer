@@ -10,20 +10,17 @@ import {
   NavBookIcon,
   NavGearIcon,
 } from "./DashboardIcons";
-import { HomeZoneIcon } from "../common/SuiteIcons";
 
 export default function DashboardSidebar({ onOpenGuide, onOpenHelpline, onOpenSettings }) {
   const navigate = useNavigate();
   const location = useLocation();
 
   const isHome = location.pathname === "/" || location.pathname === "/dashboard";
-  const isTracking = location.pathname === "/tracking" || location.pathname === "/explore";
+  const isExplore = location.pathname === "/explore" || location.pathname === "/tracking";
   const isAlerts = location.pathname === "/alerts";
-  const isZones = location.pathname === "/safe-zones" || location.pathname === "/community";
-  const isSafetyScore = location.pathname === "/safety-score" || location.pathname === "/score" || location.pathname === "/safety";
-  const isContacts = location.pathname === "/contacts" || location.pathname === "/profile";
+  const isSafety = location.pathname === "/safety" || location.pathname === "/safety-score" || location.pathname === "/score";
+  const isProfile = location.pathname === "/profile" || location.pathname === "/contacts";
   const isFlow = location.pathname === "/flow" || location.pathname === "/panic-flow";
-  const isTips = location.pathname === "/tips" || location.pathname === "/tools";
 
   return (
     <aside className="dashboard-sidebar" aria-label="Main Navigation">
@@ -41,105 +38,81 @@ export default function DashboardSidebar({ onOpenGuide, onOpenHelpline, onOpenSe
 
         {/* Navigation Rail Buttons */}
         <nav className="dashboard-nav-list">
-          {/* 1. Slide 2: Dashboard Overview */}
+          {/* 1. Dashboard Overview (Active Tile) */}
           <button
             type="button"
             className={`dashboard-nav-btn ${isHome ? "active" : ""}`}
-            onClick={() => navigate("/dashboard")}
-            title="Slide 2: Dashboard Overview"
-            aria-label="Dashboard Overview"
+            onClick={() => navigate("/")}
+            title="Dashboard Overview"
+            aria-label="Dashboard"
           >
             <DashboardGridIcon width={22} height={22} />
           </button>
 
-          {/* 2. Slide 3: Live Tracking */}
+          {/* 2. Live Tracking / Map */}
           <button
             type="button"
-            className={`dashboard-nav-btn ${isTracking ? "active" : ""}`}
+            className={`dashboard-nav-btn ${isExplore ? "active" : ""}`}
             onClick={() => navigate("/tracking")}
-            title="Slide 3: Live Route & Tracking"
+            title="Live Route & Tracking"
             aria-label="Live Tracking"
           >
             <NavPinIcon width={22} height={22} />
           </button>
 
-          {/* 3. Slide 7: Recent Alerts */}
+          {/* 3. Siren / SOS Alerts */}
           <button
             type="button"
             className={`dashboard-nav-btn ${isAlerts ? "active" : ""}`}
             onClick={() => navigate("/alerts")}
-            title="Slide 7: Recent Emergency Alerts"
-            aria-label="Recent Alerts"
+            title="SOS Alerts & Siren"
+            aria-label="Alerts"
           >
             <NavSirenIcon width={22} height={22} />
           </button>
 
-          {/* 4. Slide 8: Safe Zones & Community */}
+          {/* 4. Safe Zones & Safety Score (Slide 6) */}
           <button
             type="button"
-            className={`dashboard-nav-btn ${isZones ? "active" : ""}`}
-            onClick={() => navigate("/safe-zones")}
-            title="Slide 8: Safe Zones & Community Safety"
-            aria-label="Safe Zones & Community"
-          >
-            <HomeZoneIcon width={21} height={21} color="currentColor" />
-          </button>
-
-          {/* 5. Slide 6: Safety Score */}
-          <button
-            type="button"
-            className={`dashboard-nav-btn ${isSafetyScore ? "active" : ""}`}
+            className={`dashboard-nav-btn ${isSafety ? "active" : ""}`}
             onClick={() => navigate("/safety-score")}
-            title="Slide 6: Safety Score & Progress"
+            title="Safety Score & Progress (Slide 6)"
             aria-label="Safety Score"
           >
             <NavShieldCheckIcon width={22} height={22} />
           </button>
 
-          {/* 6. Slide 5: Emergency Contacts */}
+          {/* 5. Helpline & Crisis Support */}
           <button
             type="button"
-            className={`dashboard-nav-btn ${isContacts ? "active" : ""}`}
+            className="dashboard-nav-btn"
+            onClick={onOpenHelpline}
+            title="Emergency Helplines (24/7)"
+            aria-label="Helplines"
+          >
+            <NavHeadsetIcon width={22} height={22} />
+          </button>
+
+          {/* 6. Community & Safety Circle */}
+          <button
+            type="button"
+            className={`dashboard-nav-btn ${isProfile ? "active" : ""}`}
             onClick={() => navigate("/contacts")}
-            title="Slide 5: Emergency Contacts & Trusted Circle"
+            title="Emergency Contacts & Trusted Circle (Slide 5)"
             aria-label="Emergency Contacts"
           >
             <NavUsersIcon width={22} height={22} />
           </button>
 
-          {/* 7. Slide 4: Panic Emergency Flow */}
+          {/* 7. Panic Button Flow / Resources */}
           <button
             type="button"
             className={`dashboard-nav-btn ${isFlow ? "active" : ""}`}
             onClick={() => navigate("/flow")}
-            title="Slide 4: Panic Button Emergency Flow"
+            title="Panic Button Emergency Flow (Slide 4)"
             aria-label="Panic Flow"
           >
             <NavBookIcon width={22} height={22} />
-          </button>
-
-          {/* 8. Slide 9: Self Defense Tips & Safety Tools */}
-          <button
-            type="button"
-            className={`dashboard-nav-btn ${isTips ? "active" : ""}`}
-            onClick={() => navigate("/tips")}
-            title="Slide 9: Self Defense Tips & Safety Tools"
-            aria-label="Tips and Tools"
-          >
-            <svg width={22} height={22} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3" />
-            </svg>
-          </button>
-
-          {/* 9. Helpline & Crisis Support (24/7) */}
-          <button
-            type="button"
-            className="dashboard-nav-btn"
-            onClick={onOpenHelpline || (() => { window.location.href = "tel:18001234567"; })}
-            title="24/7 Crisis Helpline (1800-123-4567)"
-            aria-label="Helplines"
-          >
-            <NavHeadsetIcon width={22} height={22} />
           </button>
         </nav>
       </div>

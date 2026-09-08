@@ -15,8 +15,6 @@ import PanicFlow from "./components/flow/PanicFlow";
 import ContactsOverview from "./components/contacts/ContactsOverview";
 import SafetyScoreDetail from "./components/score/SafetyScoreDetail";
 import RecentAlerts from "./components/alerts/RecentAlerts";
-import SafeZonesCommunity from "./components/zones/SafeZonesCommunity";
-import SelfDefenseTools from "./components/tools/SelfDefenseTools";
 import Home from "./components/pages/Home";
 import Dashboard from "./components/pages/Dashboard";
 import Alerts from "./components/pages/Alerts";
@@ -57,18 +55,10 @@ function App() {
             <Route path="/score" element={<SafetyScoreDetail />} />
             <Route path="/safety" element={<SafetyScoreDetail />} />
 
-            {/* Slide 7: Recent Alerts */}
+            {/* Recent Alerts matching Slide 7 design */}
             <Route path="/alerts" element={<RecentAlerts />} />
 
-            {/* Slide 8: Safe Zones & Community Safety */}
-            <Route path="/safe-zones" element={<SafeZonesCommunity />} />
-            <Route path="/community" element={<SafeZonesCommunity />} />
-
-            {/* Slide 9: Self Defense Tips & Safety Tools */}
-            <Route path="/tips" element={<SelfDefenseTools />} />
-            <Route path="/tools" element={<SelfDefenseTools />} />
-
-            {/* Authenticated app shell for legacy screens */}
+            {/* Authenticated app shell for other screens */}
             <Route element={<AppShell />}>
               <Route path="/safe-routes" element={<SafeRoutes />} />
               <Route path="/home-legacy" element={<Home />} />
