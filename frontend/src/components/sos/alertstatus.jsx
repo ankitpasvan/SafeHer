@@ -23,7 +23,7 @@ export function SOSCallingOverlay({ contacts = [] }) {
       <h2 style={{ margin: "0 0 8px", fontSize: 20, fontWeight: 800 }}>
         Sending your alert...
       </h2>
-      <p style={{ color: "var(--text-secondary)", fontSize: 13.5, maxWidth: 280, margin: "0 0 30px" }}>
+      <p style={{ color: "rgba(247,244,239,0.72)", fontSize: 13.5, maxWidth: 280, margin: "0 0 30px" }}>
         Your live location is being shared with your emergency contacts now.
       </p>
 
@@ -65,7 +65,7 @@ export function SOSCallingOverlay({ contacts = [] }) {
               <div className="avatar-fallback" style={{ width: 44, height: 44, fontSize: 14 }}>
                 {c.name?.[0]?.toUpperCase() || "?"}
               </div>
-              <span style={{ fontSize: 11, color: "var(--text-secondary)" }}>
+              <span style={{ fontSize: 11, color: "rgba(247,244,239,0.7)" }}>
                 {c.name?.split(" ")[0]}
               </span>
             </div>

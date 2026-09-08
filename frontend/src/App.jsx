@@ -33,11 +33,11 @@ function App() {
               <Route path="/safety" element={<Dashboard />} />
               <Route path="/alerts" element={<Alerts />} />
               <Route path="/profile" element={<EmergencyContacts />} />
+              <Route path="/explore" element={<SafeRoutes />} />
             </Route>
 
             {/* Drill-down screens (no bottom nav, own back button) */}
             <Route path="/report" element={<ReportIncident />} />
-            <Route path="/explore" element={<SafeRoutes />} />
 
             {/* Admin only */}
             <Route element={<AdminRoute />}>

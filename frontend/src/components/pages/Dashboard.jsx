@@ -67,7 +67,7 @@ export default function Dashboard() {
 
       <h2 style={{ margin: "10px 0 6px", fontSize: 19, fontWeight: 800 }}>Are you in danger?</h2>
       <p style={{ margin: "0 0 22px", fontSize: 13, color: "var(--text-secondary)", maxWidth: 300, marginInline: "auto" }}>
-        Hold the SOS button for 1.5 seconds. Your live location and an alert will be sent to your trusted contacts instantly.
+        Hold the SOS button for 3 seconds. Your live location and an alert will be sent to your trusted contacts instantly.
       </p>
 
       {error && <div className="alert-banner alert-banner--error" style={{ textAlign: "left" }}>{error}</div>}

@@ -1,7 +1,7 @@
 import { PhoneIcon } from "./Icons";
 
 // Top bar shown on the main app screens: avatar, greeting/title, optional action button.
-export default function Navbar({ title, subtitle, avatarLetter = "?", onAction, actionIcon }) {
+export default function Navbar({ title, subtitle, eyebrow, avatarLetter = "?", onAction, actionIcon }) {
   return (
     <div className="topbar">
       <div className="topbar__profile">
@@ -11,7 +11,7 @@ export default function Navbar({ title, subtitle, avatarLetter = "?", onAction, 
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "linear-gradient(135deg, var(--teal), var(--info))",
+            background: "linear-gradient(135deg, var(--navy-mid), var(--violet))",
             fontWeight: 700,
             color: "#fff",
           }}
@@ -19,6 +19,7 @@ export default function Navbar({ title, subtitle, avatarLetter = "?", onAction, 
           {avatarLetter}
         </div>
         <div className="topbar__greeting">
+          {eyebrow && <p className="topbar__eyebrow">{eyebrow}</p>}
           <h1>{title}</h1>
           {subtitle && <p>{subtitle}</p>}
         </div>
