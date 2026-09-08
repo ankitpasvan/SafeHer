@@ -16,7 +16,7 @@ export default function DashboardSidebar({ onOpenGuide, onOpenHelpline, onOpenSe
   const location = useLocation();
 
   const isHome = location.pathname === "/" || location.pathname === "/dashboard";
-  const isExplore = location.pathname === "/explore";
+  const isExplore = location.pathname === "/explore" || location.pathname === "/tracking";
   const isAlerts = location.pathname === "/alerts";
   const isSafety = location.pathname === "/safety";
   const isProfile = location.pathname === "/profile";
@@ -52,7 +52,7 @@ export default function DashboardSidebar({ onOpenGuide, onOpenHelpline, onOpenSe
           <button
             type="button"
             className={`dashboard-nav-btn ${isExplore ? "active" : ""}`}
-            onClick={() => navigate("/explore")}
+            onClick={() => navigate("/tracking")}
             title="Live Route & Tracking"
             aria-label="Live Tracking"
           >

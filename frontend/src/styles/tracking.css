@@ -1,0 +1,480 @@
+/* ==========================================================================
+   SafeHer - Live Tracking UI Styles
+   Crafted with pixel-precision matching the official brand design
+   ========================================================================== */
+
+.tracking-shell {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #0A0618;
+  color: #FFFFFF;
+  font-family: var(--font-sans, "Plus Jakarta Sans", system-ui, -apple-system, sans-serif);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.tracking-main {
+  flex: 1;
+  padding: 24px 36px 36px;
+  max-width: 1360px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.tracking-header {
+  margin-bottom: 20px;
+}
+
+.tracking-slide-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #C084FC;
+  margin-bottom: 8px;
+  letter-spacing: 0.2px;
+}
+
+.tracking-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: #FFFFFF;
+  margin: 0 0 3px;
+}
+
+.tracking-subtitle {
+  font-size: 13.5px;
+  color: #8C86A5;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   MASTER MAP CARD
+   ========================================================================== */
+.tracking-map-card {
+  background: #140E2F;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.38);
+  position: relative;
+  overflow: hidden;
+  height: 480px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+/* Top-Left Live Badge */
+.tracking-live-pill {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  z-index: 25;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #10B981;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.tracking-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulse-dot 1.5s infinite;
+}
+
+/* Map Canvas Container */
+.tracking-map-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #080414;
+  overflow: hidden;
+}
+
+.tracking-map-svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.25s ease;
+}
+
+/* User Marker with Avatar & Radar Concentric Rings */
+.tracking-user-pin-wrapper {
+  position: absolute;
+  top: 48%;
+  left: 32%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 15;
+}
+
+.tracking-radar-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 51, 119, 0.4);
+  pointer-events: none;
+  animation: tracking-radar 2.6s infinite cubic-bezier(0.1, 0.7, 0.1, 1);
+}
+
+.tracking-radar-ring.ring-1 {
+  width: 110px;
+  height: 110px;
+}
+
+.tracking-radar-ring.ring-2 {
+  width: 200px;
+  height: 200px;
+  animation-delay: 0.85s;
+}
+
+.tracking-radar-ring.ring-3 {
+  width: 290px;
+  height: 290px;
+  animation-delay: 1.7s;
+}
+
+@keyframes tracking-radar {
+  0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0.95; }
+  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0; }
+}
+
+.tracking-user-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 3px solid #FF3377;
+  box-shadow: 0 0 20px rgba(255, 51, 119, 0.7);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  background: #110B24;
+}
+
+.tracking-user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tracking-user-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #FF3377;
+  box-shadow: 0 0 10px #FF3377;
+  margin-top: 3px;
+}
+
+/* Destination Home Pin */
+.tracking-dest-pin-wrapper {
+  position: absolute;
+  top: 32%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 15;
+}
+
+.tracking-dest-pin {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #7C3AED 0%, #9333EA 100%);
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Zoom Controls (+ / -) */
+.tracking-zoom-controls {
+  position: absolute;
+  bottom: 24px;
+  left: 56%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 20;
+}
+
+.tracking-zoom-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: rgba(19, 13, 43, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  backdrop-filter: blur(8px);
+}
+
+.tracking-zoom-btn:hover {
+  background: rgba(124, 58, 237, 0.5);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   FLOATING LOCATION INFO PANEL (Right Side Glass Card)
+   ========================================================================== */
+.tracking-info-card {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  bottom: 24px;
+  width: 320px;
+  max-width: calc(100% - 48px);
+  background: rgba(19, 13, 43, 0.86);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 25;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+}
+
+.tracking-info-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.tracking-location-name {
+  font-size: 19px;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.35;
+  margin: 0 0 6px;
+  letter-spacing: -0.2px;
+}
+
+.tracking-location-updated {
+  font-size: 12.5px;
+  color: #9D98BA;
+  margin: 0 0 20px;
+  font-weight: 400;
+}
+
+.tracking-info-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 20px;
+}
+
+.tracking-coords {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #E2E8F0;
+  font-family: ui-monospace, Consolas, monospace;
+  margin: 0 0 24px;
+  letter-spacing: 0.3px;
+}
+
+.btn-share-live {
+  width: 100%;
+  height: 50px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #6D28D9 0%, #7C3AED 100%);
+  color: #FFFFFF;
+  font-size: 14.5px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  box-shadow: 0 8px 22px rgba(109, 40, 217, 0.45);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-share-live:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 12px 28px rgba(109, 40, 217, 0.6);
+  filter: brightness(1.05);
+}
+
+.btn-share-live:active {
+  transform: translateY(0.5px);
+}
+
+/* ==========================================================================
+   BOTTOM TELEMETRY CARDS (Row of 3)
+   ========================================================================== */
+.tracking-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.telemetry-card {
+  background: #140E2F;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.telemetry-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(167, 139, 250, 0.25);
+}
+
+.telemetry-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.telemetry-icon-badge.badge-mode {
+  background: rgba(244, 63, 94, 0.12);
+  border-color: rgba(244, 63, 94, 0.25);
+}
+
+.telemetry-icon-badge.badge-accuracy {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.telemetry-icon-badge.badge-time {
+  background: rgba(168, 85, 247, 0.12);
+  border-color: rgba(168, 85, 247, 0.25);
+}
+
+.telemetry-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.telemetry-label {
+  font-size: 13px;
+  color: #8F8AA6;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.telemetry-value {
+  font-size: 16.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+/* Toast alert when location is shared */
+.tracking-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #10B981;
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+  z-index: 100;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT
+   ========================================================================== */
+@media (max-width: 980px) {
+  .tracking-map-card {
+    height: auto;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tracking-map-canvas {
+    position: relative;
+    height: 340px;
+  }
+
+  .tracking-info-card {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .tracking-zoom-controls {
+    left: auto;
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .tracking-telemetry-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tracking-main {
+    padding: 16px 16px 80px;
+  }
+}

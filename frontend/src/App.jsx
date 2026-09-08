@@ -10,6 +10,7 @@ import AppShell from "./components/common/AppShell";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import DashboardOverview from "./components/dashboard/DashboardOverview";
+import LiveTracking from "./components/tracking/LiveTracking";
 import Home from "./components/pages/Home";
 import Dashboard from "./components/pages/Dashboard";
 import Alerts from "./components/pages/Alerts";
@@ -33,13 +34,17 @@ function App() {
             <Route path="/" element={<DashboardOverview />} />
             <Route path="/dashboard" element={<DashboardOverview />} />
 
+            {/* Live Tracking matching Slide 3 design */}
+            <Route path="/tracking" element={<LiveTracking />} />
+            <Route path="/explore" element={<LiveTracking />} />
+
             {/* Authenticated app shell for other screens */}
             <Route element={<AppShell />}>
+              <Route path="/safe-routes" element={<SafeRoutes />} />
               <Route path="/home-legacy" element={<Home />} />
               <Route path="/safety" element={<Dashboard />} />
               <Route path="/alerts" element={<Alerts />} />
               <Route path="/profile" element={<EmergencyContacts />} />
-              <Route path="/explore" element={<SafeRoutes />} />
             </Route>
 
             {/* Drill-down screens (no bottom nav, own back button) */}
