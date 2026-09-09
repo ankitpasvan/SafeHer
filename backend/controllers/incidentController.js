@@ -1,6 +1,6 @@
 // controllers/incidentController.js
 const Incident = require("../models/Incident");
-const { sendIncidentConfirmationEmail } = require("../services/emailService");
+const { sendIncidentConfirmationEmail } = require("../services/EmailService");
 
 // @desc    Report an unsafe location/incident
 // @route   POST /api/incidents
