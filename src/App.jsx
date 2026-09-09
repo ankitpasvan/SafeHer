@@ -9,6 +9,14 @@ import AppShell from "./components/common/AppShell";
 
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
+import DashboardOverview from "./components/dashboard/DashboardOverview";
+import LiveTracking from "./components/tracking/LiveTracking";
+import PanicFlow from "./components/flow/PanicFlow";
+import ContactsOverview from "./components/contacts/ContactsOverview";
+import SafetyScoreDetail from "./components/score/SafetyScoreDetail";
+import RecentAlerts from "./components/alerts/RecentAlerts";
+import SafeZonesCommunity from "./components/zones/SafeZonesCommunity";
+import SelfDefenseTools from "./components/tools/SelfDefenseTools";
 import Home from "./components/pages/Home";
 import Dashboard from "./components/pages/Dashboard";
 import Alerts from "./components/pages/Alerts";
@@ -26,18 +34,51 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* Authenticated app shell (bottom nav + mobile frame) */}
+          {/* Authenticated */}
           <Route element={<ProtectedRoute />}>
+            {/* Main Desktop/Tablet Dashboard Overview matching design */}
+            <Route path="/" element={<DashboardOverview />} />
+            <Route path="/dashboard" element={<DashboardOverview />} />
+
+            {/* Live Tracking matching Slide 3 design */}
+            <Route path="/tracking" element={<LiveTracking />} />
+            <Route path="/explore" element={<LiveTracking />} />
+
+            {/* Panic Button Flow matching Slide 4 design */}
+            <Route path="/flow" element={<PanicFlow />} />
+            <Route path="/panic-flow" element={<PanicFlow />} />
+
+            {/* Emergency Contacts matching Slide 5 design */}
+            <Route path="/contacts" element={<ContactsOverview />} />
+            <Route path="/profile" element={<ContactsOverview />} />
+
+            {/* Safety Score matching Slide 6 design */}
+            <Route path="/safety-score" element={<SafetyScoreDetail />} />
+            <Route path="/score" element={<SafetyScoreDetail />} />
+            <Route path="/safety" element={<SafetyScoreDetail />} />
+
+            {/* Recent Alerts matching Slide 7 design */}
+            <Route path="/alerts" element={<RecentAlerts />} />
+
+            {/* Safe Zones & Community matching Slide 8 design */}
+            <Route path="/safe-zones" element={<SafeZonesCommunity />} />
+            <Route path="/community" element={<SafeZonesCommunity />} />
+
+            {/* Self Defense Tips & Safety Tools matching Slide 9 design */}
+            <Route path="/tips" element={<SelfDefenseTools />} />
+            <Route path="/tools" element={<SelfDefenseTools />} />
+
+            {/* Authenticated app shell for other screens */}
             <Route element={<AppShell />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/safety" element={<Dashboard />} />
-              <Route path="/alerts" element={<Alerts />} />
-              <Route path="/profile" element={<EmergencyContacts />} />
+              <Route path="/safe-routes" element={<SafeRoutes />} />
+              <Route path="/home-legacy" element={<Home />} />
+              <Route path="/safety-legacy" element={<Dashboard />} />
+              <Route path="/alerts-legacy" element={<Alerts />} />
+              <Route path="/profile-legacy" element={<EmergencyContacts />} />
             </Route>
 
             {/* Drill-down screens (no bottom nav, own back button) */}
             <Route path="/report" element={<ReportIncident />} />
-            <Route path="/explore" element={<SafeRoutes />} />
 
             {/* Admin only */}
             <Route element={<AdminRoute />}>

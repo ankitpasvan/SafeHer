@@ -187,6 +187,42 @@ export const MegaphoneIcon = (props) => (
   </svg>
 );
 
+export const ArrowRightIcon = (props) => (
+  <svg {...base} {...props}>
+    <path d="M5 12h14" />
+    <path d="m13 6 6 6-6 6" />
+  </svg>
+);
+
+export const FlashlightIcon = (props) => (
+  <svg {...base} {...props}>
+    <path d="M8 3h8l-1 5H9z" />
+    <path d="M9 8h6v3l2 3v7H7v-7l2-3z" />
+    <path d="M12 14v3" />
+  </svg>
+);
+
+export const BatteryIcon = (props) => (
+  <svg {...base} {...props}>
+    <rect x="2" y="7" width="18" height="10" rx="2" />
+    <path d="M20 10h1.5v4H20" />
+    <path d="M6 10h6v4H6z" />
+  </svg>
+);
+
+export const SignalIcon = (props) => (
+  <svg {...base} {...props}>
+    <path d="M5 16v3M9 13v6M13 10v9M17 6v13" />
+  </svg>
+);
+
+export const CompassIcon = (props) => (
+  <svg {...base} {...props}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="m8.5 15.5 2-7 7-2-2 7z" />
+  </svg>
+);
+
 export const SettingsIcon = (props) => (
   <svg {...base} {...props}>
     <circle cx="12" cy="12" r="3" />
