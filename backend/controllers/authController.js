@@ -2,7 +2,10 @@
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 const generateToken = require("../utils/generateToken");
-const { sendWelcomeEmail, sendPasswordResetEmail } = require("../services/emailService");
+const {
+  sendWelcomeEmail,
+  sendPasswordResetEmail,
+} = require("../services/EmailService");
 
 // @desc    Register a new user
 // @route   POST /api/auth/register
@@ -65,7 +68,9 @@ const loginUser = async (req, res) => {
     const identifier = (email || "").trim();
 
     if (!identifier || !password) {
-      return res.status(400).json({ message: "Please provide email/phone and password" });
+      return res
+        .status(400)
+        .json({ message: "Please provide email/phone and password" });
     }
 
     const cleanEmail = identifier.toLowerCase();
@@ -86,20 +91,27 @@ const loginUser = async (req, res) => {
     const user = await User.findOne({ $or: queryConditions });
 
     if (!user) {
-      return res.status(401).json({ message: "No account found with this email or phone number" });
+      return res
+        .status(401)
+        .json({ message: "No account found with this email or phone number" });
     }
 
     // If user registered with OAuth and has no password set
     if (!user.password) {
       return res.status(401).json({
-        message: "This account was created via 1-Click Sign-In. Please sign in with Google or reset your password.",
+        message:
+          "This account was created via 1-Click Sign-In. Please sign in with Google or reset your password.",
       });
     }
 
     // Compare entered password with hashed password in DB
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(401).json({ message: "Incorrect password. Click 'Forgot Password?' to reset it." });
+      return res
+        .status(401)
+        .json({
+          message: "Incorrect password. Click 'Forgot Password?' to reset it.",
+        });
     }
 
     // Send back user info + token
@@ -163,7 +175,11 @@ const forgotPassword = async (req, res) => {
     const rawId = (identifier || "").trim();
 
     if (!rawId) {
-      return res.status(400).json({ message: "Please provide your registered email or phone number" });
+      return res
+        .status(400)
+        .json({
+          message: "Please provide your registered email or phone number",
+        });
     }
 
     const cleanEmail = rawId.toLowerCase();
@@ -183,7 +199,11 @@ const forgotPassword = async (req, res) => {
     const user = await User.findOne({ $or: queryConditions });
 
     if (!user) {
-      return res.status(404).json({ message: "No account registered with this email or phone number" });
+      return res
+        .status(404)
+        .json({
+          message: "No account registered with this email or phone number",
+        });
     }
 
     // Generate a 6-digit OTP
@@ -219,11 +239,15 @@ const resetPassword = async (req, res) => {
     const rawId = (identifier || "").trim();
 
     if (!rawId || !newPassword) {
-      return res.status(400).json({ message: "Identifier and new password are required" });
+      return res
+        .status(400)
+        .json({ message: "Identifier and new password are required" });
     }
 
     if (newPassword.length < 6) {
-      return res.status(400).json({ message: "Password must be at least 6 characters" });
+      return res
+        .status(400)
+        .json({ message: "Password must be at least 6 characters" });
     }
 
     const cleanEmail = rawId.toLowerCase();
@@ -248,9 +272,14 @@ const resetPassword = async (req, res) => {
 
     // Verify OTP if user.resetOTP was set and OTP was provided
     if (user.resetOTP && otp) {
-      const isExpired = user.resetOTPExpires && user.resetOTPExpires < new Date();
+      const isExpired =
+        user.resetOTPExpires && user.resetOTPExpires < new Date();
       if (isExpired) {
-        return res.status(400).json({ message: "Verification code has expired. Please request a new one." });
+        return res
+          .status(400)
+          .json({
+            message: "Verification code has expired. Please request a new one.",
+          });
       }
       if (user.resetOTP !== otp.toString().trim()) {
         return res.status(400).json({ message: "Invalid verification code" });
