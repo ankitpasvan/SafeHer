@@ -1,0 +1,278 @@
+/* ==========================================================================
+   SafeHer - Safety Score (Slide 6) Styles
+   Crafted with pixel-precision matching the official brand design
+   ========================================================================== */
+
+.score-detail-shell {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #0A0618;
+  color: #FFFFFF;
+  font-family: var(--font-sans, "Plus Jakarta Sans", system-ui, -apple-system, sans-serif);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.score-detail-main {
+  flex: 1;
+  padding: 28px 36px 40px;
+  max-width: 1360px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.score-detail-header {
+  margin-bottom: 28px;
+}
+
+.score-detail-slide-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #C084FC;
+  margin-bottom: 8px;
+  letter-spacing: 0.2px;
+  width: fit-content;
+}
+
+.score-detail-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: #FFFFFF;
+  margin: 0 0 4px;
+}
+
+.score-detail-subtitle {
+  font-size: 14px;
+  color: #8C86A5;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   MASTER CONTAINER CARD
+   ========================================================================== */
+.score-master-card {
+  background: #140E2F;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 32px 36px 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.36);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  box-sizing: border-box;
+}
+
+/* Two-Column Layout (Left Gauge + Right Checklist) */
+.score-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   LEFT COLUMN: RADIAL ARC GAUGE
+   -------------------------------------------------------------------------- */
+.score-gauge-card {
+  background: rgba(14, 8, 34, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 32px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 240px;
+}
+
+.score-gauge-svg {
+  width: 250px;
+  height: 140px;
+}
+
+.score-gauge-readout {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.score-gauge-val {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1;
+  color: #FFFFFF;
+  letter-spacing: -1.2px;
+}
+
+.score-gauge-denom {
+  font-size: 13.5px;
+  color: #8C86A5;
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+.score-gauge-rating {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #10B981;
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT COLUMN: CHECKLIST PROGRESS
+   -------------------------------------------------------------------------- */
+.score-checklist-card {
+  background: rgba(14, 8, 34, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.score-checklist-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.score-checklist-row:last-child {
+  border-bottom: none;
+}
+
+.score-checklist-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.score-diamond-bullet {
+  color: #C084FC;
+  font-size: 14px;
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(192, 132, 252, 0.6);
+}
+
+.score-checklist-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.score-checklist-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-badge-val {
+  font-size: 14.5px;
+  font-weight: 700;
+  font-family: ui-monospace, Consolas, monospace;
+}
+
+.score-badge-val.is-green {
+  color: #10B981;
+}
+
+.score-badge-val.is-amber {
+  color: #F59E0B;
+}
+
+/* Round Checkmark Icon Badges */
+.score-check-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-check-circle.circle-green {
+  background: rgba(16, 185, 129, 0.18);
+  border: 1.5px solid #10B981;
+  color: #10B981;
+}
+
+.score-check-circle.circle-amber {
+  background: rgba(245, 158, 11, 0.18);
+  border: 1.5px solid #F59E0B;
+  color: #F59E0B;
+}
+
+/* --------------------------------------------------------------------------
+   BOTTOM FULL-WIDTH ACTION BUTTON
+   -------------------------------------------------------------------------- */
+.btn-improve-score-master {
+  width: 100%;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(124, 58, 237, 0.16);
+  border: 1.5px solid rgba(167, 139, 250, 0.28);
+  color: #E9D5FF;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.15);
+}
+
+.btn-improve-score-master:hover {
+  background: rgba(124, 58, 237, 0.3);
+  border-color: rgba(167, 139, 250, 0.55);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-improve-score-master:active {
+  transform: translateY(1px);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 900px) {
+  .score-two-columns {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .score-master-card {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .score-detail-main {
+    padding: 20px 16px 80px;
+  }
+}

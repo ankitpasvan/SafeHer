@@ -1,0 +1,420 @@
+/* ==========================================================================
+   SafeHer - Emergency Contacts (Slide 5) Styles
+   Crafted with pixel-precision matching the official brand design
+   ========================================================================== */
+
+.contacts-shell {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #0A0618;
+  color: #FFFFFF;
+  font-family: var(--font-sans, "Plus Jakarta Sans", system-ui, -apple-system, sans-serif);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.contacts-main {
+  flex: 1;
+  padding: 28px 36px 40px;
+  max-width: 1360px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.contacts-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 26px;
+}
+
+.contacts-header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts-slide-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #C084FC;
+  margin-bottom: 8px;
+  letter-spacing: 0.2px;
+  width: fit-content;
+}
+
+.contacts-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: #FFFFFF;
+  margin: 0 0 4px;
+}
+
+.contacts-subtitle {
+  font-size: 14px;
+  color: #8C86A5;
+  margin: 0;
+  font-weight: 400;
+}
+
+.contacts-view-all {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #C084FC;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.contacts-view-all:hover {
+  color: #FFFFFF;
+  background: rgba(167, 139, 250, 0.15);
+}
+
+/* ==========================================================================
+   2-COLUMN MAIN CONTENT GRID
+   ========================================================================== */
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Left Column: Contact Cards Stack */
+.contacts-list-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-card-item {
+  background: #140E2F;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-card-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(167, 139, 250, 0.25);
+}
+
+.contact-profile-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-avatar-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(167, 139, 250, 0.35);
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.25);
+  flex-shrink: 0;
+  background: #0E0822;
+}
+
+.contact-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-name {
+  font-size: 16.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 3px;
+  letter-spacing: -0.2px;
+}
+
+.contact-phone {
+  font-size: 13.5px;
+  color: #9E98BA;
+  margin: 0;
+  font-family: ui-monospace, Consolas, monospace;
+}
+
+/* Actions on Right Side of Contact Card */
+.contact-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-action-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #DDD6FE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.18s ease;
+}
+
+.contact-action-btn:hover {
+  background: rgba(124, 58, 237, 0.22);
+  border-color: rgba(167, 139, 250, 0.4);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.contact-action-btn:active {
+  transform: translateY(1px);
+}
+
+/* "+ Add Contact" Button */
+.btn-add-contact {
+  width: 100%;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1.5px dashed rgba(167, 139, 250, 0.3);
+  color: #DDD6FE;
+  font-size: 14.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 4px;
+}
+
+.btn-add-contact:hover {
+  background: rgba(124, 58, 237, 0.14);
+  border-color: #7C3AED;
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: QUICK CALL CARD
+   ========================================================================== */
+.quick-call-card {
+  background: #140E2F;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 32px 26px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  min-height: 290px;
+}
+
+.quick-call-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 6px;
+  letter-spacing: -0.3px;
+}
+
+.quick-call-desc {
+  font-size: 13.5px;
+  color: #9E98BA;
+  margin: 0;
+  max-width: 200px;
+  line-height: 1.45;
+}
+
+/* Big Glowing Purple Call Button */
+.quick-call-btn-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+  color: #FFFFFF;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 0 35px rgba(124, 58, 237, 0.7),
+    inset 0 2px 5px rgba(255, 255, 255, 0.4);
+  margin: 32px 0 24px;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+  position: relative;
+  z-index: 2;
+}
+
+.quick-call-btn-circle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 45px rgba(124, 58, 237, 0.9);
+}
+
+.quick-call-btn-circle:active {
+  transform: scale(0.96);
+}
+
+/* Subtle Community Silhouettes at Bottom */
+.quick-call-silhouettes {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   ADD CONTACT MODAL
+   ========================================================================== */
+.contact-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(7, 4, 18, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+  animation: fadeIn 0.2s ease;
+}
+
+.contact-modal {
+  width: 100%;
+  max-width: 480px;
+  background: #140E2F;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 28px 30px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+}
+
+.contact-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.contact-modal-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.contact-modal-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-form-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #C084FC;
+}
+
+.contact-form-input {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  background: #0E0822;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  padding: 0 16px;
+  color: #FFFFFF;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.contact-form-input:focus {
+  border-color: #7C3AED;
+}
+
+.btn-contact-submit {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7C3AED 0%, #9333EA 100%);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT
+   ========================================================================== */
+@media (max-width: 900px) {
+  .contacts-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contacts-main {
+    padding: 20px 16px 80px;
+  }
+
+  .contact-card-item {
+    padding: 14px 16px;
+  }
+}
