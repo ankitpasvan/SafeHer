@@ -3,7 +3,7 @@ const SOSAlert = require("../models/SOSAlert");
 const Contact = require("../models/Contact");
 const AlertLog = require("../models/AlertLog");
 const { sendSOSAlertToContacts } = require("../services/smsServices");
-const { sendSOSAlertEmail } = require("../services/emailService");
+const { sendSOSAlertEmail } = require("../services/EmailService");
 
 // @desc    Trigger a new SOS alert
 // @route   POST /api/sos/trigger
@@ -67,12 +67,19 @@ const triggerSOS = async (req, res) => {
       await AlertLog.create({
         user: req.user.id,
         title: "Panic Alert",
-        timeString: "Today, " + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        timeString:
+          "Today, " +
+          new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
         status: "Active",
         badgeClass: "badge-resolved",
         type: "panic",
-        details: "Triggered via 3D Panic Button. Live GPS dispatched to all emergency contacts.",
-        location: address || `Lat: ${lat.toFixed(4)}° N, Lng: ${lng.toFixed(4)}° E`,
+        details:
+          "Triggered via 3D Panic Button. Live GPS dispatched to all emergency contacts.",
+        location:
+          address || `Lat: ${lat.toFixed(4)}° N, Lng: ${lng.toFixed(4)}° E`,
       });
     } catch (_) {}
 
@@ -171,7 +178,10 @@ const resolveSOS = async (req, res) => {
 // @access  Private
 const resolveLatestSOS = async (req, res) => {
   try {
-    const alert = await SOSAlert.findOne({ user: req.user.id, status: "active" }).sort({ createdAt: -1 });
+    const alert = await SOSAlert.findOne({
+      user: req.user.id,
+      status: "active",
+    }).sort({ createdAt: -1 });
     if (alert) {
       alert.status = "resolved";
       alert.resolvedAt = new Date();
