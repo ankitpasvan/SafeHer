@@ -6,7 +6,7 @@ const {
   getMyLocation,
   getUserLocation,
   stopSharing,
-} = require("../controllers/locationController");
+} = require("../controllers/LocationController");
 const { protect } = require("../middleware/authMiddleware");
 
 router.post("/update", protect, updateLocation); // POST /api/location/update
