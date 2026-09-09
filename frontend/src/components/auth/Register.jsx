@@ -86,12 +86,36 @@ export default function RegisterForm({ onSwitchToLogin }) {
     <form onSubmit={handleSubmit} noValidate>
       {error && (
         <div className="auth-error-banner" role="alert">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="10" />
-            <line x1="12" y1="8" x2="12" y2="12" />
-            <line x1="12" y1="16" x2="12.01" y2="16" />
-          </svg>
-          <span>{error}</span>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ flexShrink: 0, marginTop: "2px" }}>
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+            <div>
+              <div>{error}</div>
+              {error.toLowerCase().includes("network") && (
+                <div style={{ marginTop: "6px" }}>
+                  <button
+                    type="button"
+                    onClick={() => handleSocialAuth("Instant Demo")}
+                    style={{
+                      background: "#7C3AED",
+                      color: "#FFFFFF",
+                      border: "none",
+                      padding: "5px 12px",
+                      borderRadius: "6px",
+                      fontSize: "12px",
+                      fontWeight: "700",
+                      cursor: "pointer",
+                    }}
+                  >
+                    🚀 Use 1-Click Instant Access
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       )}
 

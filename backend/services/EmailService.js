@@ -76,9 +76,27 @@ const sendIncidentConfirmationEmail = async (toEmail, description) => {
   return sendEmail(toEmail, subject, html);
 };
 
+// Sends a password reset OTP email
+const sendPasswordResetEmail = async (toEmail, name, otp) => {
+  const subject = "SafeHer: Your Password Reset Code";
+  const html = `
+    <div style="font-family: Arial, sans-serif; max-width: 500px; padding: 20px; background: #140E2F; color: #FFFFFF; border-radius: 12px;">
+      <h2 style="color: #F43F86; margin-top: 0;">SafeHer Security</h2>
+      <p>Hi ${name || "there"},</p>
+      <p>You recently requested to reset your SafeHer password. Use the verification code below:</p>
+      <div style="font-size: 28px; font-weight: bold; letter-spacing: 4px; color: #A855F7; background: #1B1238; padding: 12px; text-align: center; border-radius: 8px; margin: 20px 0;">
+        ${otp}
+      </div>
+      <p style="font-size: 12px; color: #8C86A5;">This code expires in 15 minutes. If you did not request this, you can safely ignore this email.</p>
+    </div>
+  `;
+  return sendEmail(toEmail, subject, html);
+};
+
 module.exports = {
   sendEmail,
   sendWelcomeEmail,
   sendSOSAlertEmail,
   sendIncidentConfirmationEmail,
+  sendPasswordResetEmail,
 };
