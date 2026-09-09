@@ -7,7 +7,7 @@ const {
   getNearbyHospitals,
   getRiskScore,
   geocode,
-} = require("../controllers/mapController");
+} = require("../controllers/MapController");
 const { protect } = require("../middleware/authMiddleware");
 
 router.post("/safe-route", protect, getSafeRoute); // POST /api/map/safe-route
